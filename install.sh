@@ -1,9 +1,40 @@
 #!/usr/bin/env bash
 # How to use:
 # . /setup.sh
+sudo pmset -a sleep 0
+sudo pmset -a disksleep 0
 
-echo "Ensure .bash_profile exists"
+# Ensure .bash_profile exists
 touch ~/.bash_profile
+
+sudo mkdir -p '/usr/local/Caskroom'
+sudo chgrp admin '/usr/local/' '/usr/local/Caskroom/' '/Library/ColorPickers/' '/Library/Screen Savers/'
+sudo chmod g+w '/usr/local/' '/usr/local/Caskroom/' '/Library/ColorPickers/' '/Library/Screen Savers/'
+
+# Setup /etc/environment
+sudo tee /etc/environment > /dev/null <<-EOF
+#!/bin/sh
+set -e
+syslog -s -l warn "Set environment variables for \$(whoami) - start"
+CASK_OPTS="--appdir=/Applications"
+CASK_OPTS="\${CASK_OPTS} --caskroom=/usr/local/Caskroom"
+CASK_OPTS="\${CASK_OPTS} --colorpickerdir=/Library/ColorPickers"
+CASK_OPTS="\${CASK_OPTS} --fontdir=/Library/Fonts"
+CASK_OPTS="\${CASK_OPTS} --prefpanedir=/Library/PreferencePanes"
+CASK_OPTS="\${CASK_OPTS} --screen_saverdir='/Library/Screen Savers'"
+export HOMEBREW_CASK_OPTS=\$CASK_OPTS
+launchctl setenv HOMEBREW_CASK_OPTS "\$CASK_OPTS"
+if [ -x /usr/libexec/path_helper ]; then
+  export PATH=""
+  eval \`/usr/libexec/path_helper -s\`
+  launchctl setenv PATH \$PATH
+fi
+osascript -e 'tell app "Dock" to quit'
+syslog -s -l warn "Set environment variables for \$(whoami) - complete"
+EOF
+
+sudo chmod a+x /etc/environment
+
 
 # ==============================================================================
 # SYMLINKS
@@ -128,22 +159,6 @@ function prompt {
   echo "$1"
 }
 
-if test ! $(which brew); then
-  prompt "Install Xcode"
-  xcode-select --install
-
-  prompt "Install Homebrew"
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-  prompt "Update Homebrew"
-  brew update
-  brew upgrade
-  brew prune
-  brew cleanup
-fi
-brew doctor
-brew tap homebrew/dupes
-
 function install {
   cmd=$1
   shift
@@ -162,60 +177,43 @@ function install {
 # ==============================================================================
 # INSTALLATION
 # ==============================================================================
+prompt "Install Homebrew"
+sudo chown $(whoami) '/usr/local' '/usr/local/Caskroom' "${HOME}/Library/Caches/Homebrew/"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# if test ! $(which brew); then
+#   prompt "Install Xcode"
+#   xcode-select --install
+
+#   prompt "Install Homebrew"
+#   sudo chown $(whoami) '/usr/local' '/usr/local/Caskroom' "${HOME}/Library/Caches/Homebrew/"
+#   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# else
+#   prompt "Update Homebrew"
+#   brew update
+#   brew upgrade
+#   brew prune
+#   brew cleanup
+# fi
+brew doctor
+brew tap homebrew/bundle
+# brew tap homebrew/dupes
+
 prompt "Install brew packages"
 brew info ${brews[@]}
 install 'brew install' ${brews[@]}
 
 prompt "Install software"
 brew tap caskroom/versions
+brew tap caskroom/cask
 brew cask info ${casks[@]}
 install 'brew cask install' ${casks[@]}
 
 prompt "Installing secondary packages"
 install 'npm install --global' ${npms[@]}
 install 'code --install-extension' ${vscode[@]}
-# brew tap caskroom/fonts
+brew tap caskroom/fonts
 # install 'brew cask install' ${fonts[@]}
-
-# ==============================================================================
-# SSH KEYS
-# ==============================================================================
-echo "Creating SSH Keys:"
-
-# Create destination folder and file
-sudo mkdir /etc/ssl && mkdir /etc/ssl/certs
-sudo touch /etc/ssl/certs/ca-certificates.crt
-
-# Create certificate file to use on Gitlab-ci runner
-openssl req -x509 -nodes -sha256 -days 365 -newkey rsa:4096 -keyout gitlab.key -out /etc/ssl/certs/gitlab.pem
-
-# Copy the key to the right location
-sudo tee -a /etc/ssl/certs/ca-certificates.crt < /etc/ssl/certs/gitlab.pem
-
-# Create certificate file to use on Terraform AWS
-sudo openssl genrsa -des3 -passout pass:x -out /etc/ssl/certs/server.pass.key 2048
-sudo openssl rsa -passin pass:x -in /etc/ssl/certs/server.pass.key -out /etc/ssl/certs/server.key
-sudo rm -f /etc/ssl/certs/server.pass.key
-sudo openssl req -new -key /etc/ssl/certs/server.key -out /etc/ssl/certs/server.csr
-sudo openssl x509 -req -sha256 -days 365 -in /etc/ssl/certs/server.csr -signkey /etc/ssl/certs/server.key -out /etc/ssl/certs/server.crt
-
-# Databases
-# ==============================================================================
-echo "Installing Mongodb"
-brew install mongodb --with-openssl
-mkdir -p /data/db && chmod 777 /data/db
-
-# Node
-# ==============================================================================
-echo "Installing nvm (https://github.com/creationix/nvm)"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
-
-echo "Installing Node"
-nvm install node
-
-echo "Node info"
-npm which
-npm -v
 
 # Shell
 # ==============================================================================
