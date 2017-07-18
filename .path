@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/bin:$PATH"
+export PATH="/bin:$PATH"
+export PATH="/usr/sbin:$PATH"
+export PATH="/sbin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"

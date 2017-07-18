@@ -1,0 +1,32 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "Menlo, monospace, Monaco, 'Courier New'",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 22,
+    "editor.tabSize": 2,
+    "editor.fontLigatures": true,
+    "editor.insertSpaces": true,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [80],
+    "files.insertFinalNewline": true,
+    "npm-intellisense.scanDevDependencies": true,
+    "standard.options": {
+        "enable": true,
+        "ignore": [
+            "node_modules/**"
+        ]
+    },
+    "eslint.enable": true,
+    "javascript.validate.enable": false,
+    // Defines space handling after a comma delimiter
+    "javascript.format.insertSpaceAfterCommaDelimiter": true,
+    "search.exclude": {
+        "node_modules": true
+    },
+    "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
+    "tslint.nodePath": "/usr/local/lib/node_modules/tslint/lib",
+    // "workbench.colorTheme": "One Dark",
+    "workbench.iconTheme": "vs-seti",
+    "editor.renderIndentGuides": false,
+    "window.zoomLevel": 0
+}
