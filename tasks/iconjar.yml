@@ -1,0 +1,3 @@
+- name: Install Iconjar
+  homebrew_cask: name=iconjar
+  when: is_osx

@@ -1,0 +1,11 @@
+# - name: Download dotfiles
+#   git:
+#     repo=https://github.com/hlibco/dotfiles.git
+#     dest=~/dotfiles
+#     version=master
+#     update=yes
+#   become: false
+- name: Set zsh as default shell
+  shell: chsh -s /bin/zsh
+  when: isnt_ci
+  become: false

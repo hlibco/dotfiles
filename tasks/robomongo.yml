@@ -1,0 +1,3 @@
+- name: Install Robomongo
+  homebrew_cask: name=robomongo
+  when: is_osx

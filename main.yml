@@ -1,0 +1,69 @@
+- hosts: localhost
+  vars:
+    - node_version: 7 
+    - is_ci: ansible_env.TRAVIS_JOB_ID is defined
+    - isnt_ci: ansible_env.TRAVIS_JOB_ID is not defined
+    - is_osx: ansible_os_family == 'Darwin'
+    - is_ubuntu: ansible_distribution == 'Ubuntu'
+    - is_ubuntu13_plus: is_ubuntu and ansible_distribution_version|int >= 13
+    - is_ubuntu15_plus: is_ubuntu and ansible_distribution_version|int >= 15
+
+  tasks:
+    # essentials:
+    - include: tasks/apt.yml
+    - include: tasks/homebrew.yml
+    - include: tasks/core.yml
+    - include: tasks/dotfiles.yml
+
+
+    # specific stuff than can be commented out
+    # ----------------------------------------
+
+    # editors, IDEs, terminals, etc
+    - include: tasks/macdown.yml
+    # - include: tasks/sublime-text.yml
+    - include: tasks/terminal.yml
+    - include: tasks/visual-studio-code.yml
+
+    # browsers
+    - include: tasks/chrome.yml
+
+    # database server
+    - include: tasks/postgres.yml
+    - include: tasks/mariadb.yml
+
+    # database client
+    - include: tasks/dbeaver.yml
+    # - include: tasks/robomongo.yml
+    # - include: tasks/sequel-pro.yml
+
+    # tools
+    - include: tasks/awscli.yml
+    - include: tasks/chrome-devtools.yml
+    # - include: tasks/docker.yml
+    - include: tasks/ngrok.yml
+    - include: tasks/vpn.yml
+
+    # languages
+    - include: tasks/node.yml
+
+    # backup
+    - include: tasks/droplr.yml
+    # - include: tasks/dropbox.yml
+    # - include: tasks/google-drive.yml
+
+    # chat
+    - include: tasks/screenhero.yml
+    - include: tasks/skype.yml
+    - include: tasks/slack.yml
+    - include: tasks/telegram.yml
+
+    # api
+    - include: tasks/insomnia.yml
+    - include: tasks/postman.yml
+
+    # images
+    - include: tasks/iconjar.yml
+
+    # media
+    - include: tasks/spotify.yml

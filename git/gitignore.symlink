@@ -38,4 +38,5 @@ Thumbs.db
 .ds_store
 .env
 
-ssh-config
+.vscode/
+dump.rdb

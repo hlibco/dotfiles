@@ -69,8 +69,9 @@ alias untar="tar -xvf"
 
 alias habits="history | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//' | sort | uniq -c | sort -n -r | head -n 10"
 
+# hardware
+# alias battery="pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';'"
+
 # Linux
 alias linux-version="cat /etc/*-release"
 
-# Brew
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'

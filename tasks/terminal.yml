@@ -1,0 +1,7 @@
+- name: Install Terminator
+  package: name=terminator
+  when: is_ubuntu
+
+- name: Install iTerm
+  homebrew_cask: name=iterm2-beta
+  when: is_osx

@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+# https://github.com/caarlos0/dotfiles/blob/master/macos/set-defaults.sh
+
+if [ "$(uname -s)" != "Darwin" ]; then
+	exit 0
+fi
+
+set +e
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -25,6 +32,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
+
+# Display battery percent
+defaults write com.apple.menuextra.battery ShowPercent -bool true
 
 # Disable transparency in the menu bar and elsewhere on Yosemite
 defaults write com.apple.universalaccess reduceTransparency -bool true
@@ -153,6 +163,10 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
+# Set up trackpad & mouse speed to a reasonable number
+defaults write -g com.apple.trackpad.scaling 2.5
+defaults write -g com.apple.mouse.scaling 2.5
+
 # Disable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
@@ -192,6 +206,9 @@ sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
 
 # Stop iTunes from responding to the keyboard media keys
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+# Turn off keyboard illumination when computer is not used for 5 minutes
+defaults write com.apple.BezelServices kDimTime -int 300
 
 ###############################################################################
 # Screen                                                                      #

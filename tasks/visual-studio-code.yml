@@ -1,0 +1,13 @@
+- name: Add VisualStudio Code apt keys
+  apt_key: url=https://packages.microsoft.com/keys/microsoft.asc
+  when: is_ubuntu
+- name: Add VisualStudio Code repository
+  apt_repository: repo='deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
+  when: is_ubuntu
+- name: Install VisualStudio Code
+  package: name=code
+  when: is_ubuntu
+
+- name: Install VisualStudio Code
+  homebrew_cask: name=visual-studio-code
+  when: is_osx

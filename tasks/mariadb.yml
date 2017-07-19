@@ -1,0 +1,10 @@
+- name: Install MariaDB
+  homebrew: name=mariadb
+  when: is_osx
+  # install_options: with-baz,enable-debug
+
+- name: Start MariaDB
+  service:
+    name: mariadb 
+    state: started
+    enabled: true

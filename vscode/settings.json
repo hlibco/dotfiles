@@ -3,11 +3,17 @@
     "editor.fontFamily": "Menlo, monospace, Monaco, 'Courier New'",
     "editor.fontSize": 14,
     "editor.lineHeight": 22,
+    "editor.rulers": [
+        80,
+        120
+    ],
     "editor.tabSize": 2,
+    "editor.trimAutoWhitespace": true,
+    "editor.tabCompletion": true,
     "editor.fontLigatures": true,
     "editor.insertSpaces": true,
     "editor.minimap.enabled": false,
-    "editor.rulers": [80],
+    "explorer.openEditors.visible": 0,
     "files.insertFinalNewline": true,
     "npm-intellisense.scanDevDependencies": true,
     "standard.options": {

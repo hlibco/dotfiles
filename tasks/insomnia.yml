@@ -1,0 +1,3 @@
+- name: Install Insomnia
+  homebrew_cask: name=insomnia
+  when: is_osx

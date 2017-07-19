@@ -1,0 +1,3 @@
+- name: Install Screenhero
+  package: name=screenhero
+  when: is_osx

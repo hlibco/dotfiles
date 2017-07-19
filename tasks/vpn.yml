@@ -1,0 +1,9 @@
+- name: Install OpenVPN stuff
+  package: name={{ item }}
+  with_items:
+    - network-manager-openvpn
+    - openvpn
+  when: is_ubuntu
+- name: Install Viscosity
+  homebrew_cask: name=viscosity
+  when: is_osx

@@ -1,0 +1,7 @@
+- name: Install DBeaver
+  apt: deb=http://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
+  when: is_ubuntu
+
+- name: Install DBeaver
+  homebrew_cask: name=dbeaver-community
+  when: is_osx

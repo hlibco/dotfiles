@@ -1,0 +1,10 @@
+- name: Add Telegram repository
+  apt_repository: repo='ppa:atareao/telegram'
+  when: is_ubuntu
+- name: Install Telegram
+  package: name=telegram
+  when: is_ubuntu
+
+- name: Install Telegram
+  homebrew_cask: name=telegram
+  when: is_osx
