@@ -10,3 +10,4 @@
 
 - name: Install Node
   package: name=nodejs
+  when: is_osx

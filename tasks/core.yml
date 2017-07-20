@@ -33,13 +33,18 @@
   package: name={{ item }}
   with_items:
     - curl
+    - diff-so-fancy
+    - fpp # https://facebook.github.io/PathPicker/
     - git
     - htop
+    - ncdu
+    - openssl
+    - tree
     - vim
     - wget
+    - yarn
     - zsh
-    - ncdu
-    - tree
+    
 
 - name: Gets the zsh path
   shell: which zsh

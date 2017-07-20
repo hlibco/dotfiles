@@ -24,7 +24,7 @@ export LC_ALL='en_US.UTF-8';
 
 # All of our zsh files
 typeset -U config_files
-config_files=($DOTFILES/*/*.zsh)
+config_files=($DOTFILES/*/*/*.zsh)
 
 # Load the path files
 for file in ${(M)config_files:#*/path.zsh}; do
@@ -99,6 +99,31 @@ export LESS_TERMCAP_md="${yellow}";
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
 
+# vi mode
+# This function changes the cursor depending on if in normal or insert mode
+function zle-keymap-select zle-line-init
+{
+    # change cursor shape in iTerm2
+    case $KEYMAP in
+        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+        viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+    esac
+
+    zle reset-prompt
+    zle -R
+}
+
+function zle-line-finish
+{
+    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+
+bindkey -v    # enable vi mode
+bindkey '^R' history-incremental-pattern-search-backward  # enable ctrl+R history search, must come after bindkey -v
 
 # ---------------------------------------------------------
 # CUSTOMIZATION

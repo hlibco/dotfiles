@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 [alias]
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
@@ -89,7 +91,7 @@
 
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
+	# attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
 	# [default] trailing-space: looks for spaces at the end of a line
@@ -135,7 +137,7 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	gpgsign = false
 
 [diff]
 
@@ -161,6 +163,7 @@
 	log = true
 
   ff = false
+	tool = vscode
 
 [push]
 
@@ -216,3 +219,5 @@
   email = "hlibco@gmail.com"
 [credential]
 	helper = osxkeychain
+[mergetool "vscode"]
+	cmd = "code --wait "

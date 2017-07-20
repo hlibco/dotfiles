@@ -13,6 +13,12 @@ My Environment Setup
 
 ---
 
+Copy
+
+~/.aws
+~/.bash_profile
+~/.npmrc
+
 
 ```
 git clone https://github.com/caarlos0/dotfiles.git ~/.dotfiles
@@ -29,3 +35,6 @@ You use it by running:
 ```
 $DOTFILES/macos/set-defaults.sh
 ```
+
+## Tmux
+https://github.com/gpakosz/.tmux

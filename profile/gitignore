@@ -1,14 +1,11 @@
 *.seed
 *.log
-*.csv
 *.dat
 *.out
 *.pid
 *.gz
 *.orig
 
-work
-build
 pids
 logs
 results

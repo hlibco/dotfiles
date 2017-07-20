@@ -1,0 +1,3 @@
+- name: Install Hugo (static website generator)
+  homebrew: name=hugo
+  when: is_osx

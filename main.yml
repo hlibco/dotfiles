@@ -7,63 +7,125 @@
     - is_ubuntu: ansible_distribution == 'Ubuntu'
     - is_ubuntu13_plus: is_ubuntu and ansible_distribution_version|int >= 13
     - is_ubuntu15_plus: is_ubuntu and ansible_distribution_version|int >= 15
-
+    
   tasks:
-    # essentials:
-    - include: tasks/apt.yml
-    - include: tasks/homebrew.yml
-    - include: tasks/core.yml
-    - include: tasks/dotfiles.yml
+    # - include: tasks/mariadb.yml
+    
+    # # essentials:
+    # - include: tasks/apt.yml
+    # - include: tasks/homebrew.yml
+    # - include: tasks/core.yml
+    # - include: tasks/dotfiles.yml
 
 
-    # specific stuff than can be commented out
-    # ----------------------------------------
+    # # specific stuff than can be commented out
+    # # ----------------------------------------
 
-    # editors, IDEs, terminals, etc
-    - include: tasks/macdown.yml
-    # - include: tasks/sublime-text.yml
-    - include: tasks/terminal.yml
-    - include: tasks/visual-studio-code.yml
+    # # languages
+    # - include: tasks/node.yml
 
-    # browsers
-    - include: tasks/chrome.yml
+    # # database server
+    # - include: tasks/postgres.yml
+    # # - include: tasks/mariadb.yml
 
-    # database server
-    - include: tasks/postgres.yml
-    - include: tasks/mariadb.yml
+    # # database client
+    # - include: tasks/dbeaver.yml
+    # # - include: tasks/robomongo.yml
+    # # - include: tasks/sequel-pro.yml
 
-    # database client
-    - include: tasks/dbeaver.yml
-    # - include: tasks/robomongo.yml
-    # - include: tasks/sequel-pro.yml
+    # # editors, IDEs, terminals, etc
+    # - include: tasks/macdown.yml
+    # # - include: tasks/sublime-text.yml
+    # - include: tasks/terminal.yml
+    # - include: tasks/visual-studio-code.yml
 
-    # tools
-    - include: tasks/awscli.yml
-    - include: tasks/chrome-devtools.yml
-    # - include: tasks/docker.yml
-    - include: tasks/ngrok.yml
-    - include: tasks/vpn.yml
+    # # tools
+    # - include: tasks/chrome-devtools.yml
+    # # - include: tasks/docker.yml
+    # - include: tasks/hugo.yml
+    # - include: tasks/ngrok.yml
+    # - include: tasks/vpn.yml
 
-    # languages
-    - include: tasks/node.yml
+    # # devops
+    # - include: tasks/awscli.yml
+    # - include: tasks/terraform.yml
 
-    # backup
-    - include: tasks/droplr.yml
-    # - include: tasks/dropbox.yml
-    # - include: tasks/google-drive.yml
+    # # browsers
+    # - include: tasks/chrome.yml
 
-    # chat
-    - include: tasks/screenhero.yml
-    - include: tasks/skype.yml
-    - include: tasks/slack.yml
-    - include: tasks/telegram.yml
+    # # backup
+    # - include: tasks/droplr.yml
+    # # - include: tasks/dropbox.yml
+    # # - include: tasks/google-drive.yml
 
-    # api
-    - include: tasks/insomnia.yml
-    - include: tasks/postman.yml
+    # # chat
+    # - include: tasks/screenhero.yml
+    # - include: tasks/skype.yml
+    # - include: tasks/slack.yml
+    # - include: tasks/telegram.yml
 
-    # images
-    - include: tasks/iconjar.yml
+    # # api
+    # - include: tasks/insomnia.yml
+    # - include: tasks/postman.yml
 
-    # media
-    - include: tasks/spotify.yml
+    # # images
+    # - include: tasks/iconjar.yml
+
+    # # media
+    # - include: tasks/spotify.yml
+
+    # # -----------------------------
+    # # BREW CLEANUP
+    # # -----------------------------
+    # - name: Cleanup Homebrew & Cask
+    #   command: brew cleanup && brew cask cleanup
+
+    # # -----------------------------
+    # # NPM MODULES
+    # # -----------------------------
+
+    # - name: Install NPM Modules
+    #   npm: name={{ item }} state=present global=yes
+    #   with_items:
+    #     - commitizen # standardize commit messages
+    #     - plop # file generator based on templates
+    #     - pm2 # process manager
+    #     - surge # cdn for developers
+    #     - tsd # search and install TypeScript definition files from DefinitelyTyped
+
+    # # -----------------------------
+    # # SYMLINKS
+    # # -----------------------------
+
+    # - name: Remove the default .bash_profile
+    #   file: path=~/.bash_profile state=absent 
+
+    # - name: Setup user profile
+    #   file:
+    #     src: '{{playbook_dir}}/profile/{{ item.src }}'
+    #     dest: '~/{{ item.dest }}'
+    #     state: link
+    #   with_items: 
+    #     - { src: 'bash_profile', dest: '.bash_profile'}
+    #     - { src: 'inputrc', dest: '.inputrc'}
+    #     - { src: 'npmrc', dest: '.npmrc'}
+    #     - { src: 'gitconfig', dest: '.gitconfig'}
+    #     - { src: 'gitignore', dest: '.gitignore'}
+    #     - { src: 'tmux', dest: '.tmux.conf'}
+    #     - { src: 'zshrc', dest: '.zshrc'}
+
+    # # -----------------------------
+    # # REPOSITORIES
+    # # -----------------------------
+    - include: tasks/repos.yml
+
+    # # -----------------------------
+    # # SETUP
+    # # -----------------------------
+
+    # - name: Setup git
+    #   command: sh config/git/config.sh
+    # - name: Setup vscode
+    #   command: sh config/vscode/config.sh
+    # - name: Setup macOS
+    #   command: sh config/macos.sh

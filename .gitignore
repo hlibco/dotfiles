@@ -1,0 +1,26 @@
+pids
+npm-debug.log
+
+.project
+.idea
+.settings
+.iml
+*.sublime-workspace
+*.sublime-project
+
+.DS_Store*
+ehthumbs.db
+Thumbs.db
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.ds_store
+.env
+
+.vscode/
+dump.rdb
+
+# Private files
+profile/bash_profile
+profile/npmrc
