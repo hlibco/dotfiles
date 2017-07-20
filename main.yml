@@ -1,4 +1,5 @@
 - hosts: localhost
+  connection: ssh # or paramiko - https://groups.google.com/forum/#!topic/ansible-project/HqD9Z-29nV4
   vars:
     - node_version: 7 
     - is_ci: ansible_env.TRAVIS_JOB_ID is defined
@@ -7,10 +8,10 @@
     - is_ubuntu: ansible_distribution == 'Ubuntu'
     - is_ubuntu13_plus: is_ubuntu and ansible_distribution_version|int >= 13
     - is_ubuntu15_plus: is_ubuntu and ansible_distribution_version|int >= 15
-    
+
   tasks:
     # - include: tasks/mariadb.yml
-    
+
     # # essentials:
     # - include: tasks/apt.yml
     # - include: tasks/homebrew.yml
@@ -84,35 +85,12 @@
     # # NPM MODULES
     # # -----------------------------
 
-    # - name: Install NPM Modules
-    #   npm: name={{ item }} state=present global=yes
-    #   with_items:
-    #     - commitizen # standardize commit messages
-    #     - plop # file generator based on templates
-    #     - pm2 # process manager
-    #     - surge # cdn for developers
-    #     - tsd # search and install TypeScript definition files from DefinitelyTyped
+    # - include: tasks/npm.yml
 
     # # -----------------------------
-    # # SYMLINKS
+    # # SYMLINKS (dotfiles)
     # # -----------------------------
-
-    # - name: Remove the default .bash_profile
-    #   file: path=~/.bash_profile state=absent 
-
-    # - name: Setup user profile
-    #   file:
-    #     src: '{{playbook_dir}}/profile/{{ item.src }}'
-    #     dest: '~/{{ item.dest }}'
-    #     state: link
-    #   with_items: 
-    #     - { src: 'bash_profile', dest: '.bash_profile'}
-    #     - { src: 'inputrc', dest: '.inputrc'}
-    #     - { src: 'npmrc', dest: '.npmrc'}
-    #     - { src: 'gitconfig', dest: '.gitconfig'}
-    #     - { src: 'gitignore', dest: '.gitignore'}
-    #     - { src: 'tmux', dest: '.tmux.conf'}
-    #     - { src: 'zshrc', dest: '.zshrc'}
+    # - include: tasks/symlinks.yml
 
     # # -----------------------------
     # # REPOSITORIES
@@ -129,3 +107,35 @@
     #   command: sh config/vscode/config.sh
     # - name: Setup macOS
     #   command: sh config/macos.sh
+    # - name: Set zsh as default shell
+    #   shell: chsh -s /bin/zsh
+    #   when: isnt_ci
+    #   become: false
+
+    # # - name: Gets the zsh path
+    # #   shell: which zsh
+    # #   register: bin_zsh
+
+    # # - name: Add homebrew zsh to /etc/shells
+    # #   lineinfile: dest=/etc/shells line='{{ bin_zsh.stdout }}'
+    # #   become: True
+
+    # # - name: Set zsh as default shell
+    # #   user: name=$user shell=/bin/zsh
+
+
+    # # -----------------------------
+    # # STARTUP
+    # # -----------------------------
+
+    # - name: Start services at login
+    #   file: src=/usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist path=~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist state=link force=yes
+    #   with_items: 
+    #     - mariadb
+    #   when: is_osx
+
+    # - name: Setup launch agents for services
+    #   command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+    #   with_items:
+    #     - mariadb
+    #   when: is_osx

@@ -1,0 +1,8 @@
+- name: Install NPM Modules
+  npm: name={{ item }} state=present global=yes
+  with_items:
+    - commitizen # standardize commit messages
+    - plop # file generator based on templates
+    - pm2 # process manager
+    - surge # cdn for developers
+    - tsd # search and install TypeScript definition files from DefinitelyTyped

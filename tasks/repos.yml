@@ -1,28 +1,62 @@
+# Generate SSH keys
+# -----------------
+# ssh-keygen -t rsa -C "your.email@example.com" -b 4096
+# $home_directory
+# - name: Get the username running the deploy
+#   local_action: command whoami
+#   register: username_on_the_host
+#   become: false
+
+# - name: Generate SSH keys for local user   
+#   user:
+#     name: good
+#     generate_ssh_key: yes
+#     ssh_key_bits: 2048
+#     ssh_key_file: .ssh/aaaaaaaaaa
+    # ssh_key_file: ~/.ssh/id_rsa.cleanify.gitlab
+
+# - name: Set authorized key for local user
+#   authorized_key:
+#     user: username_on_the_host
+#     state: present
+#     key: "{{ lookup('file', '/home/charlie/.ssh/id_rsa.pub') }}"
+
+# - name: Check SSH public key   
+#   # command: /bin/cat ~/.ssh/id_rsa.cleanify.gitlab.pub
+#   command: /bin/cat ~/.ssh/config
+#   register: cat
+#   changed_when: false
+
+# - name: Print SSH public key
+#   debug: var=cat.stdout
+
+# - name: Wait for user to copy SSH public key   
+#   pause: prompt="Please add the SSH public key above to your GitLab account"
+
+
+# Create a directory if it doesn't exist
+# --------------------------------------
+- name: Create git folder for development
+  file:
+    path: ~/git
+    state: directory
+    mode: 0755
+
+
+# Cloning repos
+# -------------      
 - name: Cloning repos + submodules
-  git: repo=git@gitlab.com:cleanify/{{ item.repo }}.git
-       dest=~/git/{{ item.dest }}
-       accept_hostkey=yes
-       force=yes
-       recursive=no
-       key_file=~/.ssh/cleanify-shiny.pem
-       # key_file=/home/user/.ssh/id_rsa.github-{{ item.repo }}
+  git: 
+    # repo: ssh://git@gitlab.com/cleanify/{{ item.src }}.git
+    repo: git@gitlab.com:cleanify/{{ item.src }}.git
+    dest: ~/git/{{ item.dest }}
+    force: yes
+    version: master
+    recursive: true
+    key_file: ~/.ssh/id_rsa
+    accept_hostkey: yes
   with_items:
     -
-      repo: meta
+      src: 'meta'
       dest: 'meta'
-      
-    # -
-    #   dest: "{{ destination }}/app/core"
-    #   repo: SubmoduleRepo
 
-
-
-# - name: Create the SSH public key file
-#   copy: content="{{ git_ssh_pub_key }}"
-#         dest=/root/.ssh/id_rsa.pub
-#         mode=0644
-
-# - name: Create the SSH private key file
-#   copy: content="{{ git_ssh_priv_key }}"
-#         dest=/root/.ssh/id_rsa
-#         mode=0600

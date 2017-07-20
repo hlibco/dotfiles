@@ -5,7 +5,3 @@
 #     version=master
 #     update=yes
 #   become: false
-- name: Set zsh as default shell
-  shell: chsh -s /bin/zsh
-  when: isnt_ci
-  become: false
