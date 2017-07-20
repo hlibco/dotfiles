@@ -10,7 +10,7 @@
     - is_ubuntu15_plus: is_ubuntu and ansible_distribution_version|int >= 15
 
   tasks:
-    # - include: tasks/mariadb.yml
+    - include: tasks/template.yml
 
     # # essentials:
     # - include: tasks/apt.yml
@@ -27,12 +27,11 @@
 
     # # database server
     # - include: tasks/postgres.yml
-    # # - include: tasks/mariadb.yml
+    # - include: tasks/mariadb.yml
 
     # # database client
-    # - include: tasks/dbeaver.yml
     # # - include: tasks/robomongo.yml
-    # # - include: tasks/sequel-pro.yml
+    # - include: tasks/sequel-pro.yml
 
     # # editors, IDEs, terminals, etc
     # - include: tasks/macdown.yml
@@ -95,7 +94,7 @@
     # # -----------------------------
     # # REPOSITORIES
     # # -----------------------------
-    - include: tasks/repos.yml
+    # - include: tasks/repos.yml
 
     # # -----------------------------
     # # SETUP

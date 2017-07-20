@@ -20,6 +20,9 @@ create_ansible_hosts () {
 create_ansible_hosts
 
 
+# sudo ls -s /tmp/mysql.sock /usr/local/var/mysql/mysql.sock && echo "Symlinked /tmp/mysql.sock to /usr/local/var/mysql/mysql.sock"
+
+
 # Set permissions
 chown $USER ~/.ssh
 chmod 400 ~/.ssh/*

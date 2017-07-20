@@ -1,0 +1,10 @@
+- name: TEST TEMPLATE
+  template:
+    # src: ~/dotfiles/templates/my.cnf.j2
+    src: /Users/good/dotfiles/templates/my.cnf.j2
+    dest: /Users/good/bbbbbbb.cnf
+    owner: good
+    group: staff
+  # template: src=my.cnf.j2 dest=/usr/local/etc/my.cnf mode=0644
+  # template: src=my.cnf.j2 dest=~/bbbbbbb.cnf
+  when: is_osx

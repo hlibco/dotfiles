@@ -50,13 +50,19 @@ https://github.com/gpakosz/.tmux
 - Clone repos
 - Run npm install after clone repoo
 - Restore .env
-- Mariadb
-- Setup DB users / connections
 - Nginx
 - PHP
 
 - Setup tmux
 - Double check mac defaults
+- Setup DB users / connections
 
 - Mongodb
 - Redis
+
+
+
+PROBLEMS:
+
+1. my.cnf.j2 is not being copied to the destination
+2. Review: mariadb.yml
