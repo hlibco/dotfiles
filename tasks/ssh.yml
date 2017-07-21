@@ -1,0 +1,24 @@
+- name: Create .ssh folder
+  file:
+    path: ~/.ssh
+    state: directory
+    mode: 0755
+
+- name: Chmod 400 to ~/.ssh/*.pem
+  file:
+    path: ~/.ssh/*.pem
+    mode: 0400
+    recurse: yes
+
+- name: Chmod 600 to ~/.ssh/id_rsa
+  file:
+    path: ~/.ssh/id_rsa
+    mode: 0400
+
+- name: Chmod 600 to ~/.ssh/config
+  file:
+    path: ~/.ssh/config
+    mode: 0600
+
+- name: Add ssh key id_rsa
+  shell: ssh-add -K ~/.ssh/id_rsa

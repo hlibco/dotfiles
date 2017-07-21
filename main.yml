@@ -13,6 +13,7 @@
 
   tasks:
     # essentials:
+    - include: tasks/ssh.yml
     - include: tasks/apt.yml
     - include: tasks/homebrew.yml
     - include: tasks/core.yml
@@ -133,5 +134,5 @@
     # -----------------------------
     # DEFAULTS
     # -----------------------------
-    # - name: Use macOS defaults
-    #   shell: config/macos.sh
+    # - name: Use macosx defaults
+    #   shell: config/macosx.sh

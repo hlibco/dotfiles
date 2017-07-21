@@ -11,13 +11,16 @@
   when: is_ubuntu
 
 - name: Configure MariaDB
-  template: src=../config/mysql/my.cnf.j2 dest=/etc/mysql/conf.d/my.cnf
+  template:
+    src: my.cnf.j2
+    dest: /etc/mysql/conf.d/my.cnf
+    mode: 0644
   notify: restart mysql
   when: is_ubuntu
 
 
-# MACOS
-# -----
+# MAC OSX
+# -------
 - name: Install MariaDB Server
   homebrew: name=mariadb
   when: is_osx
