@@ -9,6 +9,9 @@
 
 # -- general -------------------------------------------------------------------
 
+# set Zsh as your default Tmux shell
+set-option -g default-shell /bin/zsh
+
 # set -g default-terminal "screen-256color" # colors!
 set -g default-terminal "xterm-256color"
 

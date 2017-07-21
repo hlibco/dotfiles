@@ -1,23 +1,31 @@
-- name: Create .ssh folder
+- name: Create ~/.ssh folder
   file:
     path: ~/.ssh
     state: directory
     mode: 0755
 
-- name: Chmod 400 to ~/.ssh/*.pem
-  file:
-    path: ~/.ssh/*.pem
-    mode: 0400
-    recurse: yes
+- name: Collect ~/.ssh files
+  find:
+    paths: "~/.ssh/"
+    hidden: false
+    recurse: true
+  register: collected_files
 
-- name: Chmod 600 to ~/.ssh/id_rsa
+- name: Chmod 0400 to files on ~/.ssh/
   file:
-    path: ~/.ssh/id_rsa
+    path: "{{ item.path }}"
+    state: file
+    owner: "{{ user }}"
     mode: 0400
+  with_items: >
+    {{
+      collected_files.files
+    }}
 
-- name: Chmod 600 to ~/.ssh/config
+- name: Chmod 0600 to ~/.ssh/config
   file:
     path: ~/.ssh/config
+    state: file
     mode: 0600
 
 - name: Add ssh key id_rsa

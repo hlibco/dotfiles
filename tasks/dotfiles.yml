@@ -1,23 +1,27 @@
 # - name: Download dotfiles
 #   git:
-#     repo=https://github.com/hlibco/dotfiles.git
-#     dest=~/dotfiles
-#     version=master
-#     update=yes
+#     repo: https://github.com/hlibco/dotfiles.git
+#     dest: ~/dotfiles
+#     version: master
+#     update: yes
 #   become: false
 
 - name: Remove standard .bash_profile
-  file: path=~/.bash_profile state=absent 
+  file:
+    path: ~/.bash_profile
+    state: absent
 
 - name: Remove standard .zshrc
-  file: path=~/.zshrc state=absent
+  file:
+    path: ~/.zshrc
+    state: absent
 
 - name: Setup user profile
   file:
     src: '{{playbook_dir}}/profile/{{ item.src }}'
     dest: '~/{{ item.dest }}'
     state: link
-  with_items: 
+  with_items:
     - { src: 'bash_profile', dest: '.bash_profile'}
     - { src: 'inputrc', dest: '.inputrc'}
     - { src: 'npmrc', dest: '.npmrc'}

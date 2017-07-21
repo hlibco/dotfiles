@@ -8,21 +8,6 @@
 # sudo pmset -a disksleep 0
 # sudo chmod a+x /etc/environment
 
-# -------------------------------------
-# PREVENT WARNINGS
-# -------------------------------------
-function create_ansible_hosts {
-  ANSIBLE=/usr/local/etc/ansible
-  HOSTS=$ANSIBLE/hosts
-
-  if [ ! -f "$HOSTS" ]; then
-    mkdir -p $ANSIBLE && echo "Created $ANSIBLE"
-    echo "localhost ansible_connection=local" > $HOSTS && echo "Created $HOSTS"
-  fi
-}
-create_ansible_hosts
-
-
 # Set permissions
 chown $USER ~/.ssh
 
@@ -69,9 +54,9 @@ fi
 
 python --version
 ansible --version
-ansible-playbook main.yml --flush-cache
+ansible-playbook main.yml -i hosts --flush-cache
 
-# reboot after installation is done
+# Reboot after installation is done
 function reboot {
   `sudo fdesetup isactive`
   if [[ $? != 0 ]]; then

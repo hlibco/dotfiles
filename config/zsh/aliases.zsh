@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 alias work='cd ~/git/'
-alias personal='cd ~/git-public/'
+alias private='cd ~/git-private/'
 alias convert='ffmpeg -i source.mov -crf 18 -color_primaries 6 -color_trc 6 -colorspace 6 -color_range 1 converted.mp4'
 
 alias profile='sudo vi ~/.bash_profile'
@@ -29,8 +29,8 @@ xv() { case $- in *[xv]*) set +xv;; *) set -xv ;; esac }
 # simple aliases
 alias vb="cd ${BASH_LOAD_ROOT}; v load_bash; cd -; bs;" # edit these conf files
 alias less='less -R' # print raw characters
-alias ll='ls -AlhF' # before: 'ls -laF'
-alias ls='ls -F'
+alias ll.='ls -AlhF' # before: 'ls -laF'
+alias ls.='ls -F'
 alias rb='rbenv'
 alias r='rake'
 alias j='jobs'

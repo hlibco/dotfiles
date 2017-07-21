@@ -1,6 +1,6 @@
 - hosts: localhost
   strategy: debug
-  connection: ssh # or paramiko - https://groups.google.com/forum/#!topic/ansible-project/HqD9Z-29nV4
+  connection: local # ssh or paramiko - https://groups.google.com/forum/#!topic/ansible-project/HqD9Z-29nV4
   vars:
     - node_version: 7
     - user: "{{ lookup('env','USER') }}"
@@ -28,7 +28,7 @@
 
     # database server
     - include: tasks/postgres.yml
-    - include: tasks/mariadb.yml
+    # - include: tasks/mariadb.yml
 
     # database client
     # - include: tasks/robomongo.yml
@@ -129,7 +129,7 @@
     # -----------------------------
     # SECURITY
     # -----------------------------
-    - include: tasks/mariadb-secure.yml
+    # - include: tasks/mariadb-secure.yml
 
     # -----------------------------
     # DEFAULTS
