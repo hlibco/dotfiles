@@ -129,7 +129,7 @@
     # -----------------------------
     # SECURITY
     # -----------------------------
-    # - include: tasks/mariadb-secure.yml
+    - include: tasks/mariadb-secure.yml
 
     # -----------------------------
     # DEFAULTS
