@@ -46,7 +46,6 @@ https://github.com/gpakosz/.tmux
 
 ## TODO
 
-
 - Clone repos
 - Run npm install after clone repoo
 - Restore .env
@@ -64,5 +63,9 @@ https://github.com/gpakosz/.tmux
 
 PROBLEMS:
 
-1. my.cnf.j2 is not being copied to the destination
+1. Review my.cnf.j2 to add better settings
 2. Review: mariadb.yml
+
+
+
+http://codeheaven.io/15-things-you-should-know-about-ansible/

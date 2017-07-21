@@ -1,0 +1,13 @@
+
+    # - name: Set zsh as default shell
+    #   shell: chsh -s /bin/zsh
+    #   when: isnt_ci
+    #   become: false
+
+    # - name: Gets the zsh path
+    #   shell: which zsh
+    #   register: bin_zsh
+
+    # - name: Add homebrew zsh to /etc/shells
+    #   lineinfile: dest=/etc/shells line='{{ bin_zsh.stdout }}'
+    #   become: True

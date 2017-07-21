@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# ansible-playbook main.yml --flush-cache
+# --syntax-check
+# --check (dry mode: do not actually run)
+
 # sudo pmset -a sleep 0
 # sudo pmset -a disksleep 0
 # sudo chmod a+x /etc/environment
@@ -30,9 +34,7 @@ chmod 600 ~/.ssh/config
 
 ssh-add -K ~/.ssh/id_rsa
 
-ansible-playbook main.yml --check
-
-
+ansible-playbook main.yml --flush-cache
 
 # -------------------------------------
 # START
@@ -76,7 +78,7 @@ ansible-playbook main.yml --check
 
 # python --version
 # ansible --version
-# ansible-playbook main.yml --check
+# ansible-playbook main.yml --flush-cache
 
 
 # test -d ~/dotfiles && cd $_ && ./bootstrap.sh

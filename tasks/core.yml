@@ -37,6 +37,7 @@
     - fpp # https://facebook.github.io/PathPicker/
     - git
     - htop
+    - mcrypt
     - ncdu
     - openssl
     - tmux

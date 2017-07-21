@@ -1,7 +1,9 @@
 - hosts: localhost
+  strategy: debug
   connection: ssh # or paramiko - https://groups.google.com/forum/#!topic/ansible-project/HqD9Z-29nV4
   vars:
-    - node_version: 7 
+    - node_version: 7
+    - user: "{{ lookup('env','USER') }}"
     - is_ci: ansible_env.TRAVIS_JOB_ID is defined
     - isnt_ci: ansible_env.TRAVIS_JOB_ID is not defined
     - is_osx: ansible_os_family == 'Darwin'
@@ -10,131 +12,126 @@
     - is_ubuntu15_plus: is_ubuntu and ansible_distribution_version|int >= 15
 
   tasks:
-    - include: tasks/template.yml
-
-    # # essentials:
-    # - include: tasks/apt.yml
-    # - include: tasks/homebrew.yml
-    # - include: tasks/core.yml
-    # - include: tasks/dotfiles.yml
+    # essentials:
+    - include: tasks/apt.yml
+    - include: tasks/homebrew.yml
+    - include: tasks/core.yml
+    - include: tasks/dotfiles.yml
 
 
-    # # specific stuff than can be commented out
-    # # ----------------------------------------
+    # specific stuff than can be commented out
+    # ----------------------------------------
 
-    # # languages
-    # - include: tasks/node.yml
+    # languages
+    - include: tasks/node.yml
 
-    # # database server
-    # - include: tasks/postgres.yml
-    # - include: tasks/mariadb.yml
+    # database server
+    - include: tasks/postgres.yml
+    - include: tasks/mariadb.yml
 
-    # # database client
-    # # - include: tasks/robomongo.yml
-    # - include: tasks/sequel-pro.yml
+    # database client
+    # - include: tasks/robomongo.yml
+    - include: tasks/sequel-pro.yml
 
-    # # editors, IDEs, terminals, etc
-    # - include: tasks/macdown.yml
-    # # - include: tasks/sublime-text.yml
-    # - include: tasks/terminal.yml
-    # - include: tasks/visual-studio-code.yml
+    # editors, IDEs, terminals, etc
+    - include: tasks/macdown.yml
+    - include: tasks/sublime-text.yml
+    - include: tasks/terminal.yml
+    - include: tasks/visual-studio-code.yml
 
-    # # tools
-    # - include: tasks/chrome-devtools.yml
-    # # - include: tasks/docker.yml
-    # - include: tasks/hugo.yml
-    # - include: tasks/ngrok.yml
-    # - include: tasks/vpn.yml
+    # tools
+    - include: tasks/chrome-devtools.yml
+    # - include: tasks/docker.yml
+    - include: tasks/hugo.yml
+    - include: tasks/ngrok.yml
+    - include: tasks/vpn.yml
 
-    # # devops
-    # - include: tasks/awscli.yml
-    # - include: tasks/terraform.yml
+    # devops
+    - include: tasks/awscli.yml
+    - include: tasks/terraform.yml
 
-    # # browsers
-    # - include: tasks/chrome.yml
+    # browsers
+    - include: tasks/chrome.yml
 
-    # # backup
-    # - include: tasks/droplr.yml
-    # # - include: tasks/dropbox.yml
-    # # - include: tasks/google-drive.yml
+    # backup
+    - include: tasks/droplr.yml
+    # - include: tasks/dropbox.yml
+    # - include: tasks/google-drive.yml
 
-    # # chat
-    # - include: tasks/screenhero.yml
-    # - include: tasks/skype.yml
-    # - include: tasks/slack.yml
-    # - include: tasks/telegram.yml
+    # chat
+    - include: tasks/screenhero.yml
+    - include: tasks/skype.yml
+    - include: tasks/slack.yml
+    - include: tasks/telegram.yml
 
-    # # api
-    # - include: tasks/insomnia.yml
-    # - include: tasks/postman.yml
+    # api
+    - include: tasks/insomnia.yml
+    - include: tasks/postman.yml
 
-    # # images
-    # - include: tasks/iconjar.yml
+    # images
+    - include: tasks/iconjar.yml
 
-    # # media
-    # - include: tasks/spotify.yml
+    # media
+    - include: tasks/spotify.yml
 
-    # # -----------------------------
-    # # BREW CLEANUP
-    # # -----------------------------
-    # - name: Cleanup Homebrew & Cask
-    #   command: brew cleanup && brew cask cleanup
+    # -----------------------------
+    # BREW CLEANUP
+    # -----------------------------
+    - name: Cleanup Homebrew & Cask
+      shell: brew cleanup && brew cask cleanup
 
-    # # -----------------------------
-    # # NPM MODULES
-    # # -----------------------------
+    # -----------------------------
+    # NPM MODULES
+    # -----------------------------
+    - include: tasks/npm.yml
 
-    # - include: tasks/npm.yml
+    # -----------------------------
+    # REPOSITORIES
+    # -----------------------------
+    - include: tasks/repos.yml
 
-    # # -----------------------------
-    # # SYMLINKS (dotfiles)
-    # # -----------------------------
-    # - include: tasks/symlinks.yml
+    # -----------------------------
+    # SETUP
+    # -----------------------------
+    - name: Setup git
+      shell: config/git/config.sh
 
-    # # -----------------------------
-    # # REPOSITORIES
-    # # -----------------------------
-    # - include: tasks/repos.yml
+    - name: Setup vscode
+      shell: config/vscode/config.sh
 
-    # # -----------------------------
-    # # SETUP
-    # # -----------------------------
+    - name: Set zsh as default shell
+      user:
+        name: "{{ user }}"
+        shell: /bin/zsh
+      when: isnt_ci
+      become: false
 
-    # - name: Setup git
-    #   command: sh config/git/config.sh
-    # - name: Setup vscode
-    #   command: sh config/vscode/config.sh
-    # - name: Setup macOS
-    #   command: sh config/macos.sh
-    # - name: Set zsh as default shell
-    #   shell: chsh -s /bin/zsh
-    #   when: isnt_ci
-    #   become: false
+    # -----------------------------
+    # STARTUP
+    # -----------------------------
+    - name: Start services at login
+      file:
+        src: /usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist
+        dest: ~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+        state: link
+        force: yes
+      with_items:
+        - mariadb
+      when: is_osx
 
-    # # - name: Gets the zsh path
-    # #   shell: which zsh
-    # #   register: bin_zsh
+    - name: Setup launch agents for services
+      command: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+      with_items:
+        - mariadb
+      when: is_osx
 
-    # # - name: Add homebrew zsh to /etc/shells
-    # #   lineinfile: dest=/etc/shells line='{{ bin_zsh.stdout }}'
-    # #   become: True
+    # -----------------------------
+    # SECURITY
+    # -----------------------------
+    - include: tasks/mariadb-secure.yml
 
-    # # - name: Set zsh as default shell
-    # #   user: name=$user shell=/bin/zsh
-
-
-    # # -----------------------------
-    # # STARTUP
-    # # -----------------------------
-
-    # - name: Start services at login
-    #   file: src=/usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist path=~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist state=link force=yes
-    #   with_items: 
-    #     - mariadb
-    #   when: is_osx
-
-    # - name: Setup launch agents for services
-    #   command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
-    #   with_items:
-    #     - mariadb
-    #   when: is_osx
+    # -----------------------------
+    # DEFAULTS
+    # -----------------------------
+    # - name: Use macOS defaults
+    #   shell: config/macos.sh

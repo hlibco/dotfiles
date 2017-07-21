@@ -11,7 +11,7 @@ if test "$(which code)"; then
 		VSCODE_HOME="$HOME/.config/Code"
 	fi
 
-	ln -s "$DOTFILES/config/vscode/settings.json" "$VSCODE_HOME/User/settings.json"
+	ln -sf "$DOTFILES/config/vscode/settings.json" "$VSCODE_HOME/User/settings.json"
 	# ln -sf "$DOTFILES/vscode/keybindings.json" "$VSCODE_HOME/User/keybindings.json"
 
 	# Get a list of extensions: `code --list-extensions`

@@ -23,51 +23,13 @@
   when: is_osx
 
 - name: Install database
-  command: sh mysql_install_db
-  
-- name: Start mysql
-  command: sh mysql.server start
-  
-- name: Configure MariaDB
-  # template: src=~/dotfiles/config/mysql/my.cnf.j2 dest=/usr/local/etc/my.cnf mode=0644  
-  # template: src=my.cnf.j2 dest=/usr/local/etc/my.cnf
-  template: src=my.cnf.j2 dest=~/aaaaaaaaaaaa.cnf
+  shell: mysql_install_db
   when: is_osx
 
+- name: Configure MariaDB
+  template:
+    src: my.cnf.j2
+    dest: /usr/local/etc/my.cnf
+    mode: 0644
+  when: is_osx
 
-# COMMON
-# ------
-# - name: Start and enable service
-#   service: name=mariadb state=started enabled=yes
-
-# - name: Reload privilege tables
-#   command: 'mysql -ne "{{ item }}"'
-#   with_items:
-#     - FLUSH PRIVILEGES
-#   changed_when: false
-
-# - name: Remove anonymous users
-#   command: 'mysql -ne "{{ item }}"'
-#   with_items:
-#     - DELETE FROM mysql.user WHERE User=''
-#   changed_when: false
-
-# - name: Disallow root login remotely
-#   command: 'mysql -ne "{{ item }}"'
-#   with_items:
-#     - DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1')
-#   changed_when: false
-
-# - name: Remove test database and access to it
-#   command: 'mysql -ne "{{ item }}"'
-#   with_items:
-#     - DROP DATABASE test
-#     - DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%'
-#   changed_when: false
-#   ignore_errors: true
-
-# - name: Reload privilege tables
-#   command: 'mysql -ne "{{ item }}"'
-#   with_items:
-#     - FLUSH PRIVILEGES
-#   changed_when: false

@@ -2,10 +2,6 @@
   homebrew: update_homebrew=yes
   when: is_osx
 
-- name: Install services
-  homebrew: name=services
-  when: is_osx
-
 - name: Add Homebrew taps
   homebrew_tap: tap={{ item }}
   with_items:
