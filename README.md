@@ -45,28 +45,20 @@ https://github.com/gpakosz/.tmux
 
 ## TODO
 
-- Clone repos
-- Run npm install after clone repo
 - Restore .env
-
+- Restore postman settings
+- Setup tmux
+- Double check mac defaults
+- Redis
 - Docker
  - Nginx
  - PHP
  - MySQL
 
-- Setup tmux
-- Double check mac defaults
-- Setup DB users / connections
-
-- Mongodb
-- Redis
-
-
-
 PROBLEMS:
 
 1. Review my.cnf.j2 to add better settings
-
-
+2. Review how to store git list in a more secure place
+3. Fix: Some repos are not installing dependencies due to NPM_TOKEN
 
 http://codeheaven.io/15-things-you-should-know-about-ansible/

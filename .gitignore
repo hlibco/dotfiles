@@ -24,3 +24,6 @@ dump.rdb
 # Private files
 profile/bash_profile
 profile/npmrc
+
+
+vars/

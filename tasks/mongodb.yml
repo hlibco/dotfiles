@@ -1,0 +1,9 @@
+# MongoDB App is installed via Homebrew
+- name: Create ~/data/db folder used by mongod
+  file:
+    path: ~/data/db
+    state: directory
+    owner: "{{ user }}"
+    mode: 0755
+
+# To run: mongod --dbpath ~/data/db

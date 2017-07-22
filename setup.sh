@@ -63,4 +63,4 @@ function reboot {
     fi
   fi
 }
-reboot
+# reboot

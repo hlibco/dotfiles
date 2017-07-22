@@ -8,64 +8,67 @@
     - vars/main.yml
 
   tasks:
-    # -----------------------------
-    # ESSENTIALS
-    # -----------------------------
-    - include: tasks/ssh.yml
-    - include: tasks/core.yml
-    - include: tasks/dotfiles.yml
-    - include: tasks/homebrew.yml
+    - include: tasks/mongodb.yml
+    # - include: tasks/repos.yml
+    # # -----------------------------
+    # # ESSENTIALS
+    # # -----------------------------
+    # - include: tasks/ssh.yml
+    # - include: tasks/core.yml
+    # - include: tasks/dotfiles.yml
+    # - include: tasks/homebrew.yml
 
-    # -----------------------------
-    # DATABASES
-    # -----------------------------
-    - include: tasks/postgres.yml
+    # # -----------------------------
+    # # DATABASES
+    # # -----------------------------
     # # - include: tasks/mariadb.yml
+    # - include: tasks/mongodb.yml
+    # - include: tasks/postgres.yml
 
-    # -----------------------------
-    # AWS
-    # -----------------------------
-    - include: tasks/awscli.yml
+    # # -----------------------------
+    # # AWS
+    # # -----------------------------
+    # - include: tasks/awscli.yml
 
-    # -----------------------------
-    # NPM MODULES
-    # -----------------------------
-    - include: tasks/npm.yml
+    # # -----------------------------
+    # # NPM MODULES
+    # # -----------------------------
+    # - include: tasks/npm.yml
 
-    # -----------------------------
-    # GIT REPOS
-    # -----------------------------
-    - include: tasks/repos.yml
+    # # -----------------------------
+    # # GIT REPOS
+    # # -----------------------------
+    # - include: tasks/repos.yml
 
-    # -----------------------------
-    # SETUP
-    # -----------------------------
-    - name: Setup git
-      shell: config/git/config.sh
+    # # -----------------------------
+    # # SETUP
+    # # -----------------------------
+    # - name: Setup git
+    #   shell: config/git/config.sh
 
-    - name: Setup vscode
-      shell: config/vscode/config.sh
+    # - name: Setup vscode
+    #   shell: config/vscode/config.sh
 
-    - name: Set zsh as default shell
-      user:
-        name: "{{ user }}"
-        shell: /bin/zsh
-      become: false
+    # - name: Set zsh as default shell
+    #   user:
+    #     name: "{{ user }}"
+    #     shell: /bin/zsh
+    #   become: false
 
-    # -----------------------------
-    # STARTUP SERVICES
-    # -----------------------------
-    - include: tasks/services.yml
+    # # -----------------------------
+    # # STARTUP SERVICES
+    # # -----------------------------
+    # - include: tasks/services.yml
 
-    # -----------------------------
-    # SECURITY
-    # -----------------------------
-    - include: tasks/mariadb-secure.yml
+    # # -----------------------------
+    # # SECURITY
+    # # -----------------------------
+    # - include: tasks/mariadb-secure.yml
 
-    # -----------------------------
-    # MACOSX
-    # -----------------------------
-    - include: tasks/dock.yml
+    # # -----------------------------
+    # # MACOSX
+    # # -----------------------------
+    # - include: tasks/dock.yml
 
-    # - name: Use macosx defaults
-    #   shell: config/macosx.sh
+    # # - name: Use macosx defaults
+    # #   shell: config/macosx.sh

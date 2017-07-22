@@ -30,7 +30,7 @@
 # - name: Print SSH public key
 #   debug: var=cat.stdout
 
-# - name: Wait for user to copy SSH public key   
+# - name: Wait for user to copy SSH public key
 #   pause: prompt="Please add the SSH public key above to your GitLab account"
 
 
@@ -44,10 +44,9 @@
 
 
 # Cloning repos
-# -------------      
+# -------------
 - name: Cloning repos + submodules
-  git: 
-    # repo: ssh://git@gitlab.com/cleanify/{{ item.src }}.git
+  git:
     repo: git@gitlab.com:cleanify/{{ item.src }}.git
     dest: ~/git/{{ item.dest }}
     force: yes
@@ -55,8 +54,13 @@
     recursive: true
     key_file: ~/.ssh/id_rsa
     accept_hostkey: yes
-  with_items:
-    -
-      src: 'meta'
-      dest: 'meta'
+  with_items: >
+    {{ repos }}
 
+
+# Yarn install
+# ------------
+- name: Install dependencies
+  shell: cd ~/git/{{ item.dest }} && yarn
+  with_items: >
+    {{ repos }}

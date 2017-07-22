@@ -1,11 +1,7 @@
-# homebrew_install_path: /usr/local/homebrew
-
 homebrew_taps:
   - caskroom/cask
   - caskroom/fonts
   - caskroom/versions
-  # - homebrew/hugo # static website gnerator
-  # - homebrew/mongodb
 
 homebrew_packages:
   - hugo
@@ -47,7 +43,7 @@ homebrew_cask_apps:
   - postgres
 
   # Database client
-  # - robomongo
+  - mongotron
   - sequel-pro
 
   # Tools
@@ -143,3 +139,22 @@ dockitems_to_persist:
   - name: Activity Monitor
     path: "/Applications/Utilities/Activity Monitor.app"
     pos: 12
+
+repos:
+  # - { src: legacy, dest: legacy }
+  - { src: alexa, dest: alexa }
+  - { src: butler, dest: butler }
+  - { src: finance, dest: finance }
+  - { src: geoinfo, dest: geoinfo }
+  - { src: fulfillment-api, dest: fulfillment-api }
+  - { src: fulfillment-app, dest: fulfillment-app }
+  - { src: landingpages, dest: landingpages }
+  - { src: messenger, dest: messenger }
+  # - { src: meta, dest: meta }
+  - { src: salesforce, dest: salesforce }
+  # - { src: shiny-dsl, dest: shiny-dsl }
+  # - { src: shiny-service-auth, dest: auth }
+  # - { src: shiny-service-orders, dest: shiny-service-orders }
+  # - { src: shiny-service-suppliers, dest: shiny-service-suppliers }
+  - { src: shorturl, dest: shorturl }
+  # - { src: suppliers, dest: suppliers }
