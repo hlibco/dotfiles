@@ -2,6 +2,7 @@
   file:
     path: ~/.ssh
     state: directory
+    owner: "{{ user }}"
     mode: 0755
 
 - name: Collect ~/.ssh files

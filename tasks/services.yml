@@ -1,0 +1,13 @@
+- name: Start services at login
+  file:
+    src: /usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist
+    dest: ~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+    state: link
+    force: yes
+  with_items:
+    - mariadb
+
+- name: Setup launch agents for services
+  command: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+  with_items:
+    - mariadb

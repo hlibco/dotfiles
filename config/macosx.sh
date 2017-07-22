@@ -138,8 +138,8 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # SSD-specific tweaks                                                         #
 ###############################################################################
 
-# # Disable hibernation (speeds up entering sleep mode)
-# sudo pmset -a hibernatemode 0
+# Disable hibernation (speeds up entering sleep mode)
+sudo pmset -a hibernatemode 0
 
 # # Remove the sleep image file to save disk space
 # sudo rm /private/var/vm/sleepimage
@@ -214,9 +214,9 @@ defaults write com.apple.BezelServices kDimTime -int 300
 # Screen                                                                      #
 ###############################################################################
 
-# Require password 30 seconds after sleep or screen saver begins
+# Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 30
+defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
@@ -611,7 +611,7 @@ EOD
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
 # Disable the annoying line marks
 defaults write com.apple.Terminal ShowLineMarks -int 0
-# Don’t display the annoying prompt when quitting iTerm
+# Don’t display the annoying prompt when quitting iTerm2
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 ###############################################################################
 # Time Machine                                                                #

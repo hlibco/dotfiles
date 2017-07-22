@@ -2,84 +2,30 @@
   strategy: debug
   connection: local # ssh or paramiko - https://groups.google.com/forum/#!topic/ansible-project/HqD9Z-29nV4
   vars:
-    - node_version: 7
     - user: "{{ lookup('env','USER') }}"
-    - is_ci: ansible_env.TRAVIS_JOB_ID is defined
-    - isnt_ci: ansible_env.TRAVIS_JOB_ID is not defined
-    - is_osx: ansible_os_family == 'Darwin'
-    - is_ubuntu: ansible_distribution == 'Ubuntu'
-    - is_ubuntu13_plus: is_ubuntu and ansible_distribution_version|int >= 13
-    - is_ubuntu15_plus: is_ubuntu and ansible_distribution_version|int >= 15
+
+  vars_files:
+    - vars/main.yml
 
   tasks:
-    # essentials:
+    # -----------------------------
+    # ESSENTIALS
+    # -----------------------------
     - include: tasks/ssh.yml
-    - include: tasks/apt.yml
-    - include: tasks/homebrew.yml
     - include: tasks/core.yml
     - include: tasks/dotfiles.yml
+    - include: tasks/homebrew.yml
 
-
-    # specific stuff than can be commented out
-    # ----------------------------------------
-
-    # languages
-    - include: tasks/node.yml
-
-    # database server
+    # -----------------------------
+    # DATABASES
+    # -----------------------------
     - include: tasks/postgres.yml
-    # - include: tasks/mariadb.yml
+    # # - include: tasks/mariadb.yml
 
-    # database client
-    # - include: tasks/robomongo.yml
-    - include: tasks/sequel-pro.yml
-
-    # editors, IDEs, terminals, etc
-    - include: tasks/macdown.yml
-    - include: tasks/sublime-text.yml
-    - include: tasks/terminal.yml
-    - include: tasks/visual-studio-code.yml
-
-    # tools
-    - include: tasks/chrome-devtools.yml
-    # - include: tasks/docker.yml
-    - include: tasks/hugo.yml
-    - include: tasks/ngrok.yml
-    - include: tasks/vpn.yml
-
-    # devops
+    # -----------------------------
+    # AWS
+    # -----------------------------
     - include: tasks/awscli.yml
-    - include: tasks/terraform.yml
-
-    # browsers
-    - include: tasks/chrome.yml
-
-    # backup
-    - include: tasks/droplr.yml
-    # - include: tasks/dropbox.yml
-    # - include: tasks/google-drive.yml
-
-    # chat
-    - include: tasks/screenhero.yml
-    - include: tasks/skype.yml
-    - include: tasks/slack.yml
-    - include: tasks/telegram.yml
-
-    # api
-    - include: tasks/insomnia.yml
-    - include: tasks/postman.yml
-
-    # images
-    - include: tasks/iconjar.yml
-
-    # media
-    - include: tasks/spotify.yml
-
-    # -----------------------------
-    # BREW CLEANUP
-    # -----------------------------
-    - name: Cleanup Homebrew & Cask
-      shell: brew cleanup && brew cask cleanup
 
     # -----------------------------
     # NPM MODULES
@@ -87,7 +33,7 @@
     - include: tasks/npm.yml
 
     # -----------------------------
-    # REPOSITORIES
+    # GIT REPOS
     # -----------------------------
     - include: tasks/repos.yml
 
@@ -104,27 +50,12 @@
       user:
         name: "{{ user }}"
         shell: /bin/zsh
-      when: isnt_ci
       become: false
 
     # -----------------------------
-    # STARTUP
+    # STARTUP SERVICES
     # -----------------------------
-    - name: Start services at login
-      file:
-        src: /usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist
-        dest: ~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
-        state: link
-        force: yes
-      with_items:
-        - mariadb
-      when: is_osx
-
-    - name: Setup launch agents for services
-      command: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
-      with_items:
-        - mariadb
-      when: is_osx
+    - include: tasks/services.yml
 
     # -----------------------------
     # SECURITY
@@ -132,7 +63,9 @@
     - include: tasks/mariadb-secure.yml
 
     # -----------------------------
-    # DEFAULTS
+    # MACOSX
     # -----------------------------
+    - include: tasks/dock.yml
+
     # - name: Use macosx defaults
     #   shell: config/macosx.sh

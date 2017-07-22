@@ -1,0 +1,145 @@
+# homebrew_install_path: /usr/local/homebrew
+
+homebrew_taps:
+  - caskroom/cask
+  - caskroom/fonts
+  - caskroom/versions
+  # - homebrew/hugo # static website gnerator
+  # - homebrew/mongodb
+
+homebrew_packages:
+  - hugo
+  - mongodb
+  - docker
+#   - ansible
+#   - docker
+#   - git
+#   - ssh-copy-id
+#   - openssl
+#   - wget
+#   - brew-cask
+#   - dockutil
+#   - zsh
+#   - tmux
+#   - mercurial
+#   - phpmd
+#   - php-code-sniffer
+#   - php-cs-fixer
+#   - phpunit
+#   - php70
+#   - php70-intl
+#   - php70-xdebug
+#   - php70-imagick
+#   - php70-mcrypt
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  # Browsers
+  - google-chrome
+
+  # Editors, IDEs, terminals, etc
+  - macdown
+  - sublime-text
+  - iterm2-beta
+  - visual-studio-code
+
+  # Database server
+  - postgres
+
+  # Database client
+  # - robomongo
+  - sequel-pro
+
+  # Tools
+  - chrome-devtools
+
+  # Backup
+  - droplr
+  # - dropbox
+  # - google-drive
+
+  # Security
+  # - viscosity # vpn
+
+  # Containers
+  # - docker
+
+  # Chat
+  - screenhero
+  - skype
+  - slack
+  - telegram
+
+  # Api
+  - insomnia
+  - postman
+
+  # Graphics
+  - iconjar
+
+  # Media
+  - spotify
+
+npm_packages:
+  - commitizen # standardize commit messages
+  - plop # file generator based on templates
+  - pm2 # process manager
+  - surge # cdn for developers
+  - tsd # search and install TypeScript definition files from DefinitelyTyped
+  - node-gyp # required by yarn
+
+dockitems_to_remove:
+  - Launchpad
+  - Mail
+  - Safari
+  - Contacts
+  - Notes
+  - Reminders
+  - Maps
+  - Photos
+  - Messages
+  - FaceTime
+  - iTunes
+  - iBooks
+  - App Store
+  - System Preferences
+  - Calendar
+
+dockitems_to_persist:
+  - name: Google Chrome
+    path: "/Applications/Google Chrome.app"
+    pos: 1
+  - name: Sequel Pro
+    path: "/Applications/Sequel Pro.app"
+    pos: 2
+  - name: Slack
+    path: /Applications/Slack.app
+    pos: 3
+  - name: Terminal
+    path: /Applications/Utilities/Terminal.app
+    pos: 4
+  - name: iTerm
+    path: /Applications/Utilities/iTerm.app
+    pos: 5
+  - name: Visual Studio Code
+    path: /Applications/Visual Studio Code.app
+    pos: 6
+
+  - name: Notes
+    path: /Applications/Notes.app
+    pos: 7
+  - name: Safari
+    path: /Applications/Safari.app
+    pos: 8
+  - name: App Store
+    path: /Applications/App Store.app
+    pos: 9
+  - name: iTunes
+    path: /Applications/iTunes.app
+    pos: 10
+  - name: Launchpad
+    path: /Applications/Launchpad.app
+    pos: 11
+  - name: Activity Monitor
+    path: "/Applications/Utilities/Activity Monitor.app"
+    pos: 12

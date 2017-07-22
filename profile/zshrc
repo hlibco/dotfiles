@@ -9,9 +9,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Shortcut to this dotfiles path is $DOTFILES
 export DOTFILES="$HOME/dotfiles"
 
-# Your project folder that we can `c [tab]` to
-export PROJECTS="$HOME/Code"
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='code'
@@ -138,7 +135,9 @@ bindkey '^R' history-incremental-pattern-search-backward  # enable ctrl+R histor
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="kafeitu"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+# ZSH_THEME="wezm"
+ZSH_THEME="amuse"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
@@ -187,3 +186,8 @@ plugins=(git)
 
 # If you do a 'rm *', Zsh will give you a sanity check!
 setopt RM_STAR_WAIT
+
+
+autoload -U promptinit; promptinit
+
+prompt pure

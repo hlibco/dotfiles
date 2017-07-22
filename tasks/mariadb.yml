@@ -1,38 +1,15 @@
-- name: Install MariaDB repository
-  apt_repository: repo='deb http://ftp.igh.cnrs.fr/pub/mariadb/repo/10.0/ubuntu trusty main' state=present
-  when: is_ubuntu
-
-- name: Add repository key to the system
-  apt_key: keyserver=keyserver.ubuntu.com id=0xcbcb082a1bb943db
-  when: is_ubuntu
-
 - name: Install MariaDB Server
-  apt: name=mariadb-server state=latest update_cache=yes
-  when: is_ubuntu
+  homebrew:
+    name: mariadb
 
-- name: Configure MariaDB
-  template:
-    src: my.cnf.j2
-    dest: /etc/mysql/conf.d/my.cnf
-    mode: 0644
-  notify: restart mysql
-  when: is_ubuntu
-
-
-# MAC OSX
-# -------
-- name: Install MariaDB Server
-  homebrew: name=mariadb
-  when: is_osx
-
-- name: Install database
+- name: Install MariaDB database
   shell: mysql_install_db
-  when: is_osx
+  ignore_errors: yes
 
 - name: Configure MariaDB
   template:
     src: my.cnf.j2
     dest: /usr/local/etc/my.cnf
     mode: 0644
-  when: is_osx
+
 

@@ -1,11 +1,24 @@
 - name: Update Homebrew
-  homebrew: update_homebrew=yes
-  when: is_osx
+  homebrew:
+    update_homebrew: yes
 
 - name: Add Homebrew taps
-  homebrew_tap: tap={{ item }}
-  with_items:
-    - caskroom/cask
-    - caskroom/fonts
-    - caskroom/versions
-  when: is_osx
+  homebrew_tap:
+    tap: "{{ item }}"
+  with_items: >
+    {{ homebrew_taps }}
+
+- name: Add Homebrew casks
+  homebrew_cask:
+    name: "{{ item }}"
+  with_items: >
+    {{ homebrew_cask_apps }}
+
+- name: Add Homebrew packages
+  homebrew:
+    name: "{{ item }}"
+  with_items: >
+    {{ homebrew_packages }}
+
+- name: Cleanup Homebrew & Cask
+  shell: brew cleanup && brew cask cleanup

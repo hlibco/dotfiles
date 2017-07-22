@@ -30,13 +30,12 @@ chmod -R +x ./
 ```
 
 
-### MacOS defaults
+## Manual setup
 
-You use it by running:
+- Sequel Pro: Connections
 
-```
-$DOTFILES/macos/set-defaults.sh
-```
+---
+
 
 ## Tmux
 https://github.com/gpakosz/.tmux
@@ -47,10 +46,13 @@ https://github.com/gpakosz/.tmux
 ## TODO
 
 - Clone repos
-- Run npm install after clone repoo
+- Run npm install after clone repo
 - Restore .env
-- Nginx
-- PHP
+
+- Docker
+ - Nginx
+ - PHP
+ - MySQL
 
 - Setup tmux
 - Double check mac defaults
@@ -64,7 +66,6 @@ https://github.com/gpakosz/.tmux
 PROBLEMS:
 
 1. Review my.cnf.j2 to add better settings
-2. Review: mariadb.yml
 
 
 

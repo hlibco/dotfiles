@@ -1,16 +1,8 @@
 #!/bin/bash
 
-# ansible-playbook main.yml --flush-cache
-# --syntax-check
-# --check (dry mode: do not actually run)
-
 # sudo pmset -a sleep 0
 # sudo pmset -a disksleep 0
 # sudo chmod a+x /etc/environment
-
-# Set permissions
-chown $USER ~/.ssh
-
 
 # -------------------------------------
 # START
@@ -52,19 +44,23 @@ if test ! "$(which ansible)"; then
   exit 1
 fi
 
+# Print versions
 python --version
 ansible --version
+
+# Run playbook
 ansible-playbook main.yml -i hosts --flush-cache
+# Use with: --check / --syntax-check
 
 # Reboot after installation is done
 function reboot {
   `sudo fdesetup isactive`
   if [[ $? != 0 ]]; then
-    read -p "##### Do you want to reboot? [Yn]" -n 1 -r
+    read -p ">> Do you want to reboot? [Yn]" -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       echo ''
       sudo reboot
     fi
   fi
 }
-# reboot
+reboot

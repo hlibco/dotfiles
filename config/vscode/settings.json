@@ -34,5 +34,6 @@
     // "workbench.colorTheme": "One Dark",
     "workbench.iconTheme": "vs-seti",
     "editor.renderIndentGuides": false,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "workbench.startupEditor": "newUntitledFile"
 }
