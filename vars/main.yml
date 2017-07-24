@@ -4,9 +4,11 @@ homebrew_taps:
   - caskroom/versions
 
 homebrew_packages:
-  - hugo
-  - mongodb
   - docker
+  - hugo # static website generator
+  - lnav # log navigator
+  - mitmproxy # man-in-the-middle proxy for HTTP & HTTPS
+  - mongodb
 #   - ansible
 #   - docker
 #   - git
@@ -37,6 +39,7 @@ homebrew_cask_apps:
   - macdown
   - sublime-text
   - iterm2-beta
+  - upterm
   - visual-studio-code
 
   # Database server
@@ -48,6 +51,11 @@ homebrew_cask_apps:
 
   # Tools
   - chrome-devtools
+  - switchhosts
+  - dash # api documentation browser
+  - flux # f.lux adjusts monitor brightness according to the time of the day
+  - launchrocket # preference pane for managing services with launchd
+  - integrity # website link checker
 
   # Backup
   - droplr
@@ -59,8 +67,10 @@ homebrew_cask_apps:
 
   # Containers
   # - docker
+  # - vagrant-manager
 
   # Chat
+  - franz # maybe do not need Skype, Slack, Telegram
   - screenhero
   - skype
   - slack
@@ -76,6 +86,9 @@ homebrew_cask_apps:
   # Media
   - spotify
 
+  # Network
+  # - wireshark
+
 npm_packages:
   - commitizen # standardize commit messages
   - plop # file generator based on templates
@@ -87,9 +100,7 @@ npm_packages:
 dockitems_to_remove:
   - Launchpad
   - Mail
-  - Safari
   - Contacts
-  - Notes
   - Reminders
   - Maps
   - Photos
@@ -120,25 +131,28 @@ dockitems_to_persist:
   - name: Visual Studio Code
     path: /Applications/Visual Studio Code.app
     pos: 6
+  - name: Insomnia
+    path: /Applications/Insomnia.app
+    pos: 7
 
   - name: Notes
     path: /Applications/Notes.app
-    pos: 7
+    pos: 8
   - name: Safari
     path: /Applications/Safari.app
-    pos: 8
+    pos: 9
   - name: App Store
     path: /Applications/App Store.app
-    pos: 9
+    pos: 10
   - name: iTunes
     path: /Applications/iTunes.app
-    pos: 10
+    pos: 11
   - name: Launchpad
     path: /Applications/Launchpad.app
-    pos: 11
+    pos: 12
   - name: Activity Monitor
     path: "/Applications/Utilities/Activity Monitor.app"
-    pos: 12
+    pos: 13
 
 repos:
   # - { src: legacy, dest: legacy }

@@ -28,9 +28,15 @@ if test "$(uname)" = "Darwin"; then
   else
     brew upgrade ansible
   fi
-else
-  echo "This script targets MacOSX."
-  exit 1
+elif test "$(uname)" = "Linux"; then
+  if test -f /etc/lsb-release && test ! "$(which ansible)"; then
+    echo "Install Ansible..."
+    sudo apt-get install -y software-properties-common
+    sudo apt-add-repository -y ppa:ansible/ansible
+    sudo apt-get update
+    sudo apt-get install -y ansible
+  fi
+  printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
 fi
 
 if test ! "$(which ansible)"; then

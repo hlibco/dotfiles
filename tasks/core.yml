@@ -50,3 +50,7 @@
 
     # Ngrok
     - eqnxio/ngrok/ngrok
+
+- name: Install Glances
+  pip:
+    name: glances

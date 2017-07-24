@@ -6,8 +6,10 @@
     force: yes
   with_items:
     - mariadb
+    # - mongodb
 
 - name: Setup launch agents for services
   command: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
   with_items:
     - mariadb
+    # - mongodb

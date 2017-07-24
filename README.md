@@ -15,7 +15,7 @@ My Environment Setup
 2. Clone this repo:
 
 ```
-git clone https://github.com/caarlos0/dotfiles.git ~/.dotfiles
+git clone https://github.com/hlibco/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 chmod -R +x ./
 ```
@@ -33,9 +33,13 @@ chmod -R +x ./
 ## Manual setup
 
 - Sequel Pro: Connections
+- Login:
+  - Google Chrome
+  - Insomnia
+  - Slack
+- Restore .env (dotenv/install.sh)
 
 ---
-
 
 ## Tmux
 https://github.com/gpakosz/.tmux
@@ -45,15 +49,17 @@ https://github.com/gpakosz/.tmux
 
 ## TODO
 
-- Restore .env
-- Restore postman settings
+- setup oh-my-zsh theme
 - Setup tmux
 - Double check mac defaults
+
+- DynamoDB
 - Redis
 - Docker
  - Nginx
  - PHP
  - MySQL
+
 
 PROBLEMS:
 

@@ -8,8 +8,7 @@
     - vars/main.yml
 
   tasks:
-    - include: tasks/mongodb.yml
-    # - include: tasks/repos.yml
+    - include: tasks/homebrew.yml
     # # -----------------------------
     # # ESSENTIALS
     # # -----------------------------
