@@ -306,7 +306,11 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>1303 1316 796 473 717 900 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>717 1480 1920 477 717 900 1920 1057 </string>
+	<string>0 0 1436 877 0 0 1440 877 </string>
+	<key>NeverWarnAboutShortLivedSessions_1340436A-2B80-4D3C-858D-276BFCA13BA5</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_1340436A-2B80-4D3C-858D-276BFCA13BA5_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1059,7 +1063,7 @@
 				<key>Has Toolbelt</key>
 				<false/>
 				<key>Height</key>
-				<real>477</real>
+				<real>877</real>
 				<key>Hide After Opening</key>
 				<false/>
 				<key>Hiding Toolbelt Should Resize Window</key>
@@ -1069,7 +1073,7 @@
 				<key>Saved Window Type</key>
 				<integer>0</integer>
 				<key>Screen</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>Selected Tab Index</key>
 				<integer>0</integer>
 				<key>Tabs</key>
@@ -1340,7 +1344,7 @@
 												<real>0.90730977058410645</real>
 											</dict>
 											<key>Guid</key>
-											<string>01DF9B3D-A8F7-489C-9ED6-117AC6FD0AF2</string>
+											<string>35FED0C6-BE45-4597-841B-B1BD32D3B6C5</string>
 											<key>Horizontal Spacing</key>
 											<real>1</real>
 											<key>Idle Code</key>
@@ -1736,18 +1740,22 @@
 										<key>Bookmark Name</key>
 										<string>Default</string>
 										<key>Columns</key>
-										<integer>78</integer>
+										<integer>58</integer>
 										<key>Commands</key>
 										<array/>
 										<key>Directories</key>
 										<array>
 											<string>/Users/good/git</string>
 											<string>/Users/good/git</string>
+											<string>/Users/good/git</string>
+											<string>/Users/good/git</string>
+											<string>/Users/good/git</string>
+											<string>/Users/good/git</string>
 										</array>
 										<key>Environment</key>
 										<dict>
 											<key>PWD</key>
-											<string>~/git</string>
+											<string>/Users/good/git</string>
 										</dict>
 										<key>Hosts</key>
 										<array/>
@@ -1759,7 +1767,7 @@
 											<string>Shell Launcher</string>
 										</dict>
 										<key>Rows</key>
-										<integer>25</integer>
+										<integer>47</integer>
 										<key>Session Default Name</key>
 										<string>Default</string>
 										<key>Session GUID</key>
@@ -1780,9 +1788,9 @@
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>454</real>
+										<real>854</real>
 										<key>width</key>
-										<real>641</real>
+										<real>477.5</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -2040,7 +2048,7 @@
 													<key>Description</key>
 													<string>Default</string>
 													<key>Disable Window Resizing</key>
-													<true/>
+													<false/>
 													<key>Flashing Bell</key>
 													<false/>
 													<key>Foreground Color</key>
@@ -2379,14 +2387,16 @@
 													<false/>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
+													<key>Prevent Opening in a Tab</key>
+													<false/>
 													<key>Prompt Before Closing 2</key>
-													<integer>2</integer>
+													<integer>0</integer>
 													<key>Right Option Key Sends</key>
 													<integer>0</integer>
 													<key>Rows</key>
 													<integer>25</integer>
 													<key>Screen</key>
-													<integer>-1</integer>
+													<integer>-2</integer>
 													<key>Scrollback Lines</key>
 													<integer>1000</integer>
 													<key>Selected Text Color</key>
@@ -2422,7 +2432,7 @@
 													<key>Terminal Type</key>
 													<string>xterm-256color</string>
 													<key>Transparency</key>
-													<real>0.12224381345177665</real>
+													<real>0.058355805837563453</real>
 													<key>Unicode Version</key>
 													<integer>9</integer>
 													<key>Unlimited Scrollback</key>
@@ -2447,18 +2457,22 @@
 												<key>Bookmark Name</key>
 												<string>Default</string>
 												<key>Columns</key>
-												<integer>78</integer>
+												<integer>58</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
 												<array>
 													<string>/Users/good/git</string>
 													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
 												</array>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
-													<string>~/git</string>
+													<string>/Users/good/git</string>
 												</dict>
 												<key>Hosts</key>
 												<array/>
@@ -2470,7 +2484,7 @@
 													<string>Shell Launcher</string>
 												</dict>
 												<key>Rows</key>
-												<integer>12</integer>
+												<integer>23</integer>
 												<key>Session Default Name</key>
 												<string>Default</string>
 												<key>Session GUID</key>
@@ -2491,9 +2505,9 @@
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>227</real>
+												<real>435</real>
 												<key>width</key>
-												<real>639</real>
+												<real>480</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
@@ -2748,7 +2762,7 @@
 													<key>Description</key>
 													<string>Default</string>
 													<key>Disable Window Resizing</key>
-													<true/>
+													<false/>
 													<key>Flashing Bell</key>
 													<false/>
 													<key>Foreground Color</key>
@@ -3087,14 +3101,16 @@
 													<false/>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
+													<key>Prevent Opening in a Tab</key>
+													<false/>
 													<key>Prompt Before Closing 2</key>
-													<integer>2</integer>
+													<integer>0</integer>
 													<key>Right Option Key Sends</key>
 													<integer>0</integer>
 													<key>Rows</key>
 													<integer>25</integer>
 													<key>Screen</key>
-													<integer>-1</integer>
+													<integer>-2</integer>
 													<key>Scrollback Lines</key>
 													<integer>1000</integer>
 													<key>Selected Text Color</key>
@@ -3130,7 +3146,7 @@
 													<key>Terminal Type</key>
 													<string>xterm-256color</string>
 													<key>Transparency</key>
-													<real>0.12224381345177665</real>
+													<real>0.058355805837563453</real>
 													<key>Unicode Version</key>
 													<integer>9</integer>
 													<key>Unlimited Scrollback</key>
@@ -3155,18 +3171,22 @@
 												<key>Bookmark Name</key>
 												<string>Default</string>
 												<key>Columns</key>
-												<integer>78</integer>
+												<integer>58</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
 												<array>
 													<string>/Users/good/git</string>
 													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
 												</array>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
-													<string>~/git</string>
+													<string>/Users/good/git</string>
 												</dict>
 												<key>Hosts</key>
 												<array/>
@@ -3178,7 +3198,7 @@
 													<string>Shell Launcher</string>
 												</dict>
 												<key>Rows</key>
-												<integer>12</integer>
+												<integer>23</integer>
 												<key>Session Default Name</key>
 												<string>Default</string>
 												<key>Session GUID</key>
@@ -3199,13 +3219,13 @@
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>226</real>
+												<real>418</real>
 												<key>width</key>
-												<real>639</real>
+												<real>480</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
-												<real>228</real>
+												<real>436</real>
 											</dict>
 										</dict>
 									</array>
@@ -3214,11 +3234,11 @@
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>454</real>
+										<real>854</real>
 										<key>width</key>
-										<real>639</real>
+										<real>480</real>
 										<key>x</key>
-										<real>642</real>
+										<real>478.5</real>
 										<key>y</key>
 										<real>0.0</real>
 									</dict>
@@ -3476,7 +3496,7 @@
 													<key>Description</key>
 													<string>Default</string>
 													<key>Disable Window Resizing</key>
-													<true/>
+													<false/>
 													<key>Flashing Bell</key>
 													<false/>
 													<key>Foreground Color</key>
@@ -3815,14 +3835,16 @@
 													<false/>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
+													<key>Prevent Opening in a Tab</key>
+													<false/>
 													<key>Prompt Before Closing 2</key>
-													<integer>2</integer>
+													<integer>0</integer>
 													<key>Right Option Key Sends</key>
 													<integer>0</integer>
 													<key>Rows</key>
 													<integer>25</integer>
 													<key>Screen</key>
-													<integer>-1</integer>
+													<integer>-2</integer>
 													<key>Scrollback Lines</key>
 													<integer>1000</integer>
 													<key>Selected Text Color</key>
@@ -3858,7 +3880,7 @@
 													<key>Terminal Type</key>
 													<string>xterm-256color</string>
 													<key>Transparency</key>
-													<real>0.12224381345177665</real>
+													<real>0.058355805837563453</real>
 													<key>Unicode Version</key>
 													<integer>9</integer>
 													<key>Unlimited Scrollback</key>
@@ -3883,18 +3905,22 @@
 												<key>Bookmark Name</key>
 												<string>Default</string>
 												<key>Columns</key>
-												<integer>78</integer>
+												<integer>58</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
 												<array>
 													<string>/Users/good/git</string>
 													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
 												</array>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
-													<string>~/git</string>
+													<string>/Users/good/git</string>
 												</dict>
 												<key>Hosts</key>
 												<array/>
@@ -3906,7 +3932,7 @@
 													<string>Shell Launcher</string>
 												</dict>
 												<key>Rows</key>
-												<integer>12</integer>
+												<integer>23</integer>
 												<key>Session Default Name</key>
 												<string>Default</string>
 												<key>Session GUID</key>
@@ -3927,9 +3953,9 @@
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>227</real>
+												<real>435</real>
 												<key>width</key>
-												<real>638</real>
+												<real>476.5</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
@@ -4184,7 +4210,7 @@
 													<key>Description</key>
 													<string>Default</string>
 													<key>Disable Window Resizing</key>
-													<true/>
+													<false/>
 													<key>Flashing Bell</key>
 													<false/>
 													<key>Foreground Color</key>
@@ -4523,14 +4549,16 @@
 													<false/>
 													<key>Option Key Sends</key>
 													<integer>0</integer>
+													<key>Prevent Opening in a Tab</key>
+													<false/>
 													<key>Prompt Before Closing 2</key>
-													<integer>2</integer>
+													<integer>0</integer>
 													<key>Right Option Key Sends</key>
 													<integer>0</integer>
 													<key>Rows</key>
 													<integer>25</integer>
 													<key>Screen</key>
-													<integer>-1</integer>
+													<integer>-2</integer>
 													<key>Scrollback Lines</key>
 													<integer>1000</integer>
 													<key>Selected Text Color</key>
@@ -4566,7 +4594,7 @@
 													<key>Terminal Type</key>
 													<string>xterm-256color</string>
 													<key>Transparency</key>
-													<real>0.12224381345177665</real>
+													<real>0.058355805837563453</real>
 													<key>Unicode Version</key>
 													<integer>9</integer>
 													<key>Unlimited Scrollback</key>
@@ -4591,18 +4619,22 @@
 												<key>Bookmark Name</key>
 												<string>Default</string>
 												<key>Columns</key>
-												<integer>78</integer>
+												<integer>58</integer>
 												<key>Commands</key>
 												<array/>
 												<key>Directories</key>
 												<array>
 													<string>/Users/good/git</string>
 													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
+													<string>/Users/good/git</string>
 												</array>
 												<key>Environment</key>
 												<dict>
 													<key>PWD</key>
-													<string>~/git</string>
+													<string>/Users/good/git</string>
 												</dict>
 												<key>Hosts</key>
 												<array/>
@@ -4614,7 +4646,7 @@
 													<string>Shell Launcher</string>
 												</dict>
 												<key>Rows</key>
-												<integer>12</integer>
+												<integer>23</integer>
 												<key>Session Default Name</key>
 												<string>Default</string>
 												<key>Session GUID</key>
@@ -4635,13 +4667,13 @@
 											<key>frame</key>
 											<dict>
 												<key>height</key>
-												<real>226</real>
+												<real>418</real>
 												<key>width</key>
-												<real>638</real>
+												<real>476.5</real>
 												<key>x</key>
 												<real>0.0</real>
 												<key>y</key>
-												<real>228</real>
+												<real>436</real>
 											</dict>
 										</dict>
 									</array>
@@ -4650,11 +4682,11 @@
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>454</real>
+										<real>854</real>
 										<key>width</key>
-										<real>638</real>
+										<real>476.5</real>
 										<key>x</key>
-										<real>1282</real>
+										<real>959.5</real>
 										<key>y</key>
 										<real>0.0</real>
 									</dict>
@@ -4667,9 +4699,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>454</real>
+								<real>854</real>
 								<key>width</key>
-								<real>1920</real>
+								<real>1436</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -4683,13 +4715,13 @@
 				<key>TerminalGuid</key>
 				<string>pty-1206B6D9-16A2-407E-B167-1E019DA21918</string>
 				<key>Width</key>
-				<real>1920</real>
+				<real>1436</real>
 				<key>Window Type</key>
 				<integer>0</integer>
 				<key>X Origin</key>
-				<real>717</real>
+				<real>0.0</real>
 				<key>Y Origin</key>
-				<real>1480</real>
+				<real>0.0</real>
 			</dict>
 		</array>
 	</dict>

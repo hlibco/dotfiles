@@ -18,21 +18,16 @@
     - include: tasks/dotfiles.yml
 
     # -----------------------------
-    # DATABASES
-    # -----------------------------
-    # - include: tasks/mariadb.yml
-    - include: tasks/mongodb.yml
-    - include: tasks/postgres.yml
-
-    # -----------------------------
-    # AWS
-    # -----------------------------
-    - include: tasks/awscli.yml
-
-    # -----------------------------
     # NPM MODULES
     # -----------------------------
     - include: tasks/npm.yml
+
+    # -----------------------------
+    # DATABASES
+    # -----------------------------
+    - include: tasks/mariadb.yml
+    - include: tasks/mongodb.yml
+    - include: tasks/postgres.yml
 
     # -----------------------------
     # GIT REPOS
@@ -48,11 +43,18 @@
     - name: Setup vscode
       shell: config/vscode/config.sh
 
+    - name: Setup iterm
+      file:
+        src: config/iterm/com.google.iterm2.plist
+        dest: ~/Library/Preferences/com.google.iterm2.plist
+        state: link
+        force: yes
+
     - name: Set zsh as default shell
       user:
         name: "{{ user }}"
         shell: /bin/zsh
-      become: false
+      become: false`
 
     - name: Remove last login from zsh
       file:
@@ -75,5 +77,5 @@
     # -----------------------------
     - include: tasks/dock.yml
 
-    # - name: Use macosx defaults
-    #   shell: config/macosx.sh
+    - name: Use macosx defaults
+      shell: config/macosx.sh

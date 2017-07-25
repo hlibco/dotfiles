@@ -2,9 +2,9 @@
   homebrew:
     name: mariadb
 
-- name: Install MariaDB database
-  shell: mysql_install_db
-  ignore_errors: yes
+# - name: Install MariaDB database
+#   shell: mysql_install_db
+#   ignore_errors: yes
 
 - name: Configure MariaDB
   template:

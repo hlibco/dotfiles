@@ -16,7 +16,8 @@
 
 - name: Install Homebrew packages
   homebrew:
-    name: "{{ item }}"
+    name: "{{ item.name | default(item) }}"
+    install_options: "{{ item.install_options | default(omit) }}"
   with_items: >
     {{ homebrew_packages }}
 

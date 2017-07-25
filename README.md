@@ -1,7 +1,4 @@
-### Env
-
-Macbook Pro / Development Environment Setup
----
+## Macbook Pro / Development Environment Setup
 
 1. Backup these items from your previous machine and copy to your new machine:
 
@@ -47,6 +44,14 @@ repos:
 - Restore .env (dotenv/install.sh)
 
 ---
+
+## Run
+
+Mongo DB:
+
+```
+mongod --dbpath ~/data/db
+```
 
 ## TODO
 

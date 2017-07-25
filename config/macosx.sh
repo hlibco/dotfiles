@@ -699,7 +699,6 @@ for app in "Activity Monitor" \
 	"Contacts" \
 	"Dock" \
 	"Finder" \
-	"Google Chrome" \
 	"Mail" \
 	"Messages" \
 	"Photos" \

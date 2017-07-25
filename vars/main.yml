@@ -50,6 +50,7 @@ packages:
     - yarn
 
 pip_packages:
+  - awscli
   - glances
 
 homebrew_taps:
@@ -58,7 +59,6 @@ homebrew_taps:
   - caskroom/versions
 
 homebrew_packages:
-  - docker
   - hugo # static website generator
   - lnav # log navigator
   - mitmproxy # man-in-the-middle proxy for HTTP & HTTPS
@@ -99,6 +99,7 @@ homebrew_cask_apps:
   # - viscosity # vpn
 
   # Containers
+  - docker
   # - vagrant-manager
 
   # Chat
