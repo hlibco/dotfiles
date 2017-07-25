@@ -124,6 +124,7 @@ homebrew_cask_apps:
 
 npm_packages:
   - commitizen # standardize commit messages
+  - cz-conventional-changelog # commitizen adapter
   - plop # file generator based on templates
   - pm2 # process manager
   - surge # cdn for developers

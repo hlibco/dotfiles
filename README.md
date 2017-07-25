@@ -62,7 +62,6 @@ mongod --dbpath ~/data/db
  - MySQL
 - Double check mac defaults
 
-
 1. Review my.cnf.j2 to add better settings
 
 2. Review how to store git repos

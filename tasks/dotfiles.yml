@@ -23,6 +23,7 @@
     state: link
   with_items:
     - { src: 'bash_profile', dest: '.bash_profile'}
+    - { src: 'czrc', dest: '.czrc'}
     - { src: 'inputrc', dest: '.inputrc'}
     - { src: 'npmrc', dest: '.npmrc'}
     - { src: 'gitconfig', dest: '.gitconfig'}
