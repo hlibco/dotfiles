@@ -1,0 +1,11 @@
+- name: Install Core packages
+  package:
+    name: "{{ item }}"
+  with_items: >
+    {{ packages }}
+
+- name: Install PIP packages
+  pip:
+    name: "{{ item }}"
+  with_items: >
+    {{ pip_packages }}

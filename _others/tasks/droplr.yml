@@ -1,3 +1,0 @@
-- name: Install Droplr
-  homebrew_cask: name=droplr
-  when: is_osx

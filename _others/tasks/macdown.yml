@@ -1,3 +1,0 @@
-- name: Install Macdown
-  homebrew_cask: name=macdown
-  when: is_osx

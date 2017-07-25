@@ -1,7 +1,0 @@
-- name: Install Skype
-  apt: deb=http://download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
-  when: is_ubuntu
-
-- name: Install Skype
-  homebrew_cask: name=skype
-  when: is_osx

@@ -183,11 +183,38 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+# don't nice background tasks
+NO_BG_NICE="true"
+NO_HUP="true"
+NO_LIST_BEEP="true"
+# allow functions to have local options
+LOCAL_OPTIONS="true"
+# allow functions to have local traps
+LOCAL_TRAPS="true"
+# share history between sessions ???
+SHARE_HISTORY="true"
+# add timestamps to history
+EXTENDED_HISTORY="true"
+PROMPT_SUBST="true"
+CORRECT="true"
+COMPLETE_IN_WORD="true"
+# adds history
+APPEND_HISTORY="true"
+# adds history incrementally and share it across sessions
+INC_APPEND_HISTORY="true"
+SHARE_HISTORY="true"
+# don't record dupes in history
+HIST_IGNORE_ALL_DUPS="true"
+HIST_REDUCE_BLANKS="true"
+HIST_IGNORE_DUPS="true"
+HIST_IGNORE_SPACE="true"
+HIST_VERIFY="true"
+HIST_EXPIRE_DUPS_FIRST="true"
 # If you do a 'rm *', Zsh will give you a sanity check!
-setopt RM_STAR_WAIT
-
+RM_STAR_WAIT="true"
 
 autoload -U promptinit; promptinit
-
 prompt pure

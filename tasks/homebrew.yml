@@ -8,13 +8,13 @@
   with_items: >
     {{ homebrew_taps }}
 
-- name: Add Homebrew casks
+- name: Install Homebrew casks
   homebrew_cask:
     name: "{{ item }}"
   with_items: >
     {{ homebrew_cask_apps }}
 
-- name: Add Homebrew packages
+- name: Install Homebrew packages
   homebrew:
     name: "{{ item }}"
   with_items: >

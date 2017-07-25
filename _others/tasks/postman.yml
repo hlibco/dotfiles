@@ -1,3 +1,0 @@
-- name: Install Postman
-  homebrew_cask: name=postman
-  when: is_osx

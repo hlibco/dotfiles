@@ -7,9 +7,9 @@
 #   register: username_on_the_host
 #   become: false
 
-# - name: Generate SSH keys for local user   
+# - name: Generate SSH keys for local user
 #   user:
-#     name: good
+#     name: "{{ user }}"
 #     generate_ssh_key: yes
 #     ssh_key_bits: 2048
 #     ssh_key_file: .ssh/aaaaaaaaaa
@@ -21,7 +21,7 @@
 #     state: present
 #     key: "{{ lookup('file', '/home/charlie/.ssh/id_rsa.pub') }}"
 
-# - name: Check SSH public key   
+# - name: Check SSH public key
 #   # command: /bin/cat ~/.ssh/id_rsa.cleanify.gitlab.pub
 #   command: /bin/cat ~/.ssh/config
 #   register: cat
@@ -50,7 +50,7 @@
     repo: git@gitlab.com:cleanify/{{ item.src }}.git
     dest: ~/git/{{ item.dest }}
     force: yes
-    version: master
+    version: "{{ item.version | default('master') }}"
     recursive: true
     key_file: ~/.ssh/id_rsa
     accept_hostkey: yes
@@ -61,6 +61,6 @@
 # Yarn install
 # ------------
 - name: Install dependencies
-  shell: cd ~/git/{{ item.dest }} && yarn
+  shell: cd ~/git/{{ item.dest }} && find . -type f -name package.json && yarn
   with_items: >
     {{ repos }}

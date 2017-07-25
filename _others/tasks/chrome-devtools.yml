@@ -1,3 +1,0 @@
-- name: Install Chrome-devtools
-  homebrew_cask: name=chrome-devtools
-  when: is_osx

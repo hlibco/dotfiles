@@ -1,6 +1,0 @@
-- name: Install Applications
-  homebrew_cask:
-    name: "{{ item }}"
-  with_items: >
-    {{ homebrew_cask_apps }}
-  when: is_osx

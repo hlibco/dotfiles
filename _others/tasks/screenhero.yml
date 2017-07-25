@@ -1,3 +1,0 @@
-- name: Install Screenhero
-  homebrew_cask: name=screenhero
-  when: is_osx

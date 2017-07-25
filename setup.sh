@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# sudo pmset -a sleep 0
-# sudo pmset -a disksleep 0
-# sudo chmod a+x /etc/environment
-
 # -------------------------------------
 # START
 # -------------------------------------

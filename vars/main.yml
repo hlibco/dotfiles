@@ -1,3 +1,57 @@
+packages:
+    # OSX-only core packages
+    - coreutils
+    - dockutil
+    - findutils
+    - gawk
+    - gnu-getopt
+    - gnu-indent
+    - gnu-sed
+    - gnu-tar
+    - gnutls
+    - gpg
+    - grc
+    - pstree
+    - unrar
+    - watch
+
+    # Core packages
+    - curl
+    - fpp # https://facebook.github.io/PathPicker/
+
+    # Editor
+    - vim
+
+    # Git
+    - diff-so-fancy
+    - git
+
+    # Shell
+    - tmux
+    - zsh
+    - zsh-completions
+
+    # Languages
+    - nodejs
+
+    # Terraform
+    - terraform
+
+    # Ngrok
+    - eqnxio/ngrok/ngrok
+
+    # Others
+    - htop
+    - mcrypt
+    - ncdu
+    - openssl
+    - tree
+    - wget
+    - yarn
+
+pip_packages:
+  - glances
+
 homebrew_taps:
   - caskroom/cask
   - caskroom/fonts
@@ -8,27 +62,6 @@ homebrew_packages:
   - hugo # static website generator
   - lnav # log navigator
   - mitmproxy # man-in-the-middle proxy for HTTP & HTTPS
-  - mongodb
-#   - ansible
-#   - docker
-#   - git
-#   - ssh-copy-id
-#   - openssl
-#   - wget
-#   - brew-cask
-#   - dockutil
-#   - zsh
-#   - tmux
-#   - mercurial
-#   - phpmd
-#   - php-code-sniffer
-#   - php-cs-fixer
-#   - phpunit
-#   - php70
-#   - php70-intl
-#   - php70-xdebug
-#   - php70-imagick
-#   - php70-mcrypt
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
@@ -66,7 +99,6 @@ homebrew_cask_apps:
   # - viscosity # vpn
 
   # Containers
-  # - docker
   # - vagrant-manager
 
   # Chat
@@ -96,6 +128,7 @@ npm_packages:
   - surge # cdn for developers
   - tsd # search and install TypeScript definition files from DefinitelyTyped
   - node-gyp # required by yarn
+  - pure-prompt # zsh prompt - https://github.com/sindresorhus/pure
 
 dockitems_to_remove:
   - Launchpad
@@ -154,21 +187,4 @@ dockitems_to_persist:
     path: "/Applications/Utilities/Activity Monitor.app"
     pos: 13
 
-repos:
-  # - { src: legacy, dest: legacy }
-  - { src: alexa, dest: alexa }
-  - { src: butler, dest: butler }
-  - { src: finance, dest: finance }
-  - { src: geoinfo, dest: geoinfo }
-  - { src: fulfillment-api, dest: fulfillment-api }
-  - { src: fulfillment-app, dest: fulfillment-app }
-  - { src: landingpages, dest: landingpages }
-  - { src: messenger, dest: messenger }
-  # - { src: meta, dest: meta }
-  - { src: salesforce, dest: salesforce }
-  # - { src: shiny-dsl, dest: shiny-dsl }
-  # - { src: shiny-service-auth, dest: auth }
-  # - { src: shiny-service-orders, dest: shiny-service-orders }
-  # - { src: shiny-service-suppliers, dest: shiny-service-suppliers }
-  - { src: shorturl, dest: shorturl }
-  # - { src: suppliers, dest: suppliers }
+
