@@ -108,6 +108,7 @@ homebrew_cask_apps:
   - skype
   - slack
   - telegram
+  - zoomus
 
   # Api
   - insomnia
@@ -119,6 +120,9 @@ homebrew_cask_apps:
   # Media
   - spotify
 
+  # Security
+  - 1password
+
   # Network
   # - wireshark
 
@@ -128,9 +132,12 @@ npm_packages:
   - plop # file generator based on templates
   - pm2 # process manager
   - surge # cdn for developers
-  - tsd # search and install TypeScript definition files from DefinitelyTyped
   - node-gyp # required by yarn
+  - nodemon
   - pure-prompt # zsh prompt - https://github.com/sindresorhus/pure
+  - tsd # search and install TypeScript definition files from DefinitelyTyped
+  - typescript
+  - typings
 
 dockitems_to_remove:
   - Launchpad

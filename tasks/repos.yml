@@ -41,14 +41,31 @@
     path: ~/git
     state: directory
     mode: 0755
+- name: Create git-private folder for development
+  file:
+    path: ~/git-private
+    state: directory
+    mode: 0755
+- name: Create git-public folder for development
+  file:
+    path: ~/git-public
+    state: directory
+    mode: 0755
 
+- name: Ensure github.com is a known host
+  lineinfile:
+    dest: ~/.ssh/known_hosts
+    create: yes
+    state: present
+    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+    regexp: "^github\\.com"
 
 # Cloning repos
 # -------------
 - name: Cloning repos + submodules
   git:
-    repo: git@gitlab.com:cleanify/{{ item.src }}.git
-    dest: ~/git/{{ item.dest }}
+    repo: '{{ item.src }}'
+    dest: '{{ item.dest }}'
     force: yes
     version: "{{ item.version | default('master') }}"
     recursive: true
@@ -61,6 +78,6 @@
 # Yarn install
 # ------------
 - name: Install dependencies
-  shell: cd ~/git/{{ item.dest }} && find . -type f -name package.json && yarn
+  shell: cd {{ item.dest }} && find . -type f -name package.json && yarn
   with_items: >
     {{ repos }}

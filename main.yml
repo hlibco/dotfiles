@@ -9,73 +9,74 @@
     - vars/repos.yml
 
   tasks:
-    # -----------------------------
-    # ESSENTIALS
-    # -----------------------------
-    - include: tasks/ssh.yml
-    - include: tasks/packages.yml
-    - include: tasks/homebrew.yml
-    - include: tasks/dotfiles.yml
-
-    # -----------------------------
-    # NPM MODULES
-    # -----------------------------
-    - include: tasks/npm.yml
-
-    # -----------------------------
-    # DATABASES
-    # -----------------------------
-    - include: tasks/mariadb.yml
-    - include: tasks/mongodb.yml
-    - include: tasks/postgres.yml
-
-    # -----------------------------
-    # GIT REPOS
-    # -----------------------------
     - include: tasks/repos.yml
+    # # -----------------------------
+    # # ESSENTIALS
+    # # -----------------------------
+    # - include: tasks/ssh.yml
+    # - include: tasks/packages.yml
+    # - include: tasks/homebrew.yml
+    # - include: tasks/dotfiles.yml
 
-    # -----------------------------
-    # SETUP
-    # -----------------------------
-    - name: Setup git
-      shell: config/git/config.sh
+    # # -----------------------------
+    # # NPM MODULES
+    # # -----------------------------
+    # - include: tasks/npm.yml
 
-    - name: Setup vscode
-      shell: config/vscode/config.sh
+    # # -----------------------------
+    # # DATABASES
+    # # -----------------------------
+    # - include: tasks/mariadb.yml
+    # - include: tasks/mongodb.yml
+    # - include: tasks/postgres.yml
 
-    - name: Setup iterm
-      file:
-        src: config/iterm/com.google.iterm2.plist
-        dest: ~/Library/Preferences/com.google.iterm2.plist
-        state: link
-        force: yes
+    # # -----------------------------
+    # # GIT REPOS
+    # # -----------------------------
+    # - include: tasks/repos.yml
 
-    - name: Set zsh as default shell
-      user:
-        name: "{{ user }}"
-        shell: /bin/zsh
-      become: false`
+    # # -----------------------------
+    # # SETUP
+    # # -----------------------------
+    # - name: Setup git
+    #   shell: config/git/config.sh
 
-    - name: Remove last login from zsh
-      file:
-        path: ~/.hushlogin
-        state: touch
-        mode: 0755
+    # - name: Setup vscode
+    #   shell: config/vscode/config.sh
 
-    # -----------------------------
-    # STARTUP SERVICES
-    # -----------------------------
-    - include: tasks/services.yml
+    # - name: Setup iterm
+    #   file:
+    #     src: config/iterm/com.google.iterm2.plist
+    #     dest: ~/Library/Preferences/com.google.iterm2.plist
+    #     state: link
+    #     force: yes
 
-    # -----------------------------
-    # SECURITY
-    # -----------------------------
-    - include: tasks/mariadb-secure.yml
+    # - name: Set zsh as default shell
+    #   user:
+    #     name: "{{ user }}"
+    #     shell: /bin/zsh
+    #   become: false`
 
-    # -----------------------------
-    # MACOSX
-    # -----------------------------
-    - include: tasks/dock.yml
+    # - name: Remove last login from zsh
+    #   file:
+    #     path: ~/.hushlogin
+    #     state: touch
+    #     mode: 0755
 
-    - name: Use macosx defaults
-      shell: config/macosx.sh
+    # # -----------------------------
+    # # STARTUP SERVICES
+    # # -----------------------------
+    # - include: tasks/services.yml
+
+    # # -----------------------------
+    # # SECURITY
+    # # -----------------------------
+    # - include: tasks/mariadb-secure.yml
+
+    # # -----------------------------
+    # # MACOSX
+    # # -----------------------------
+    # - include: tasks/dock.yml
+
+    # - name: Use macosx defaults
+    #   shell: config/macosx.sh
