@@ -67,6 +67,9 @@ alias 644="chmod -Rv 644"
 alias passw="openssl rand -base64 20"
 alias untar="tar -xvf"
 
+# use hub wrapper to make me better at GitHub
+alias git=hub
+
 alias habits="history | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//' | sort | uniq -c | sort -n -r | head -n 10"
 
 # hardware

@@ -218,8 +218,8 @@
 
 [user]
 
-  name = "Felipe Hlibco"
-  email = "hlibco@gmail.com"
+	name = Felipe Hlibco
+	email = hlibco@gmail.com
 [credential]
 	helper = osxkeychain
 [mergetool "vscode"]

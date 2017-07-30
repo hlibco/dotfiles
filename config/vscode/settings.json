@@ -15,6 +15,10 @@
     "editor.minimap.enabled": false,
     "explorer.openEditors.visible": 0,
     "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": false
+    },
     "npm-intellisense.scanDevDependencies": true,
     "standard.options": {
         "enable": true,

@@ -59,6 +59,7 @@ homebrew_taps:
   - caskroom/versions
 
 homebrew_packages:
+  - hub # master github - https://hub.github.com/
   - hugo # static website generator
   - lnav # log navigator
   - mitmproxy # man-in-the-middle proxy for HTTP & HTTPS
@@ -84,11 +85,12 @@ homebrew_cask_apps:
 
   # Tools
   - chrome-devtools
-  - switchhosts
   - dash # api documentation browser
   - flux # f.lux adjusts monitor brightness according to the time of the day
-  - launchrocket # preference pane for managing services with launchd
+  - github-desktop
   - integrity # website link checker
+  - launchrocket # preference pane for managing services with launchd
+  - switchhosts
 
   # Backup
   - droplr

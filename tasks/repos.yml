@@ -41,15 +41,26 @@
     path: ~/git
     state: directory
     mode: 0755
+- name: Create git-public folder for development
+  file:
+    path: ~/git-public
+    state: directory
+    mode: 0755
 - name: Create git-private folder for development
   file:
     path: ~/git-private
     state: directory
     mode: 0755
-- name: Create git-public folder for development
+- name: Create git-community folder for development
   file:
-    path: ~/git-public
+    path: ~/git-community
     state: directory
+    mode: 0755
+
+- name: Setup known_hosts permission
+  file:
+    path: ~/.ssh/known_hosts
+    state: file
     mode: 0755
 
 - name: Ensure github.com is a known host
@@ -59,6 +70,14 @@
     state: present
     line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
     regexp: "^github\\.com"
+
+- name: Ensure gitlab.com is a known host
+  lineinfile:
+    dest: ~/.ssh/known_hosts
+    create: yes
+    state: present
+    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa gitlab.com') }}"
+    regexp: "^gitlab\\.com"
 
 # Cloning repos
 # -------------
