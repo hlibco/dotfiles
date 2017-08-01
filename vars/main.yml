@@ -137,6 +137,7 @@ npm_packages:
   - node-gyp # required by yarn
   - nodemon
   - pure-prompt # zsh prompt - https://github.com/sindresorhus/pure
+  - serverless # serverless framework
   - tsd # search and install TypeScript definition files from DefinitelyTyped
   - typescript
   - typings
