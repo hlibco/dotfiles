@@ -57,12 +57,19 @@ homebrew_taps:
   - caskroom/cask
   - caskroom/fonts
   - caskroom/versions
+  - homebrew/dupes
+  - homebrew/php
 
 homebrew_packages:
+  - graphviz # graph visualization
   - hub # master github - https://hub.github.com/
   - hugo # static website generator
   - lnav # log navigator
   - mitmproxy # man-in-the-middle proxy for HTTP & HTTPS
+  - nginx
+  - { name: php56, install_options: '--without-apache --with-fpm --with-mysql' }
+  - php56-mcrypt
+  - php56-xdebug
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:

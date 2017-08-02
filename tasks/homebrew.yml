@@ -8,18 +8,18 @@
   with_items: >
     {{ homebrew_taps }}
 
-- name: Install Homebrew casks
-  homebrew_cask:
-    name: "{{ item }}"
-  with_items: >
-    {{ homebrew_cask_apps }}
-
 - name: Install Homebrew packages
   homebrew:
     name: "{{ item.name | default(item) }}"
     install_options: "{{ item.install_options | default(omit) }}"
   with_items: >
     {{ homebrew_packages }}
+
+- name: Install Homebrew casks
+  homebrew_cask:
+    name: "{{ item }}"
+  with_items: >
+    {{ homebrew_cask_apps }}
 
 - name: Cleanup Homebrew & Cask
   shell: brew cleanup && brew cask cleanup

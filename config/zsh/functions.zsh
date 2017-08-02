@@ -30,3 +30,27 @@ function gitio() {
 
 # Login as the user app
 asapp() { sudo su app -c "$*" }
+
+# Get docker container ip
+# Use: docker-ip [container_id]
+docker-ip() {
+  # docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
+	docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"
+}
+
+function status () {
+	case ${1} in
+		'php-fpm')
+			lsof -Pni4 | grep LISTEN | grep php
+		;;
+		# 'mariadb'|'nginx')
+		# 	brew services list | grep ${1}
+		# ;;
+		*)
+			brew services list | grep ${1}
+	esac
+}
+
+function restart () {
+	sudo brew services restart ${1}
+}

@@ -69,3 +69,14 @@ mongod --dbpath ~/data/db
 3. Fix: Some repos are not installing dependencies due to NPM_TOKEN
 
 http://codeheaven.io/15-things-you-should-know-about-ansible/
+
+
+### Install PHP + MySQL on MacOS
+
+https://www.sylvaindurand.org/setting-up-a-nginx-web-server-on-macos/
+
+https://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
+
+https://gist.github.com/johnantoni/07df65898456ace4307d5bb6cbdc7f51
+
+https://gist.github.com/GabLeRoux/5766354

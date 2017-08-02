@@ -7,9 +7,15 @@
   with_items:
     - mariadb
     # - mongodb
+    - nginx
+    - php56
 
 - name: Setup launch agents for services
   command: launchctl load ~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
   with_items:
     - mariadb
     # - mongodb
+    - nginx
+    - php56
+
+# launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist

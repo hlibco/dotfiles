@@ -9,73 +9,81 @@
     - vars/repos.yml
 
   tasks:
-    # -----------------------------
-    # ESSENTIALS
-    # -----------------------------
-    - include: tasks/ssh.yml
-    - include: tasks/packages.yml
-    - include: tasks/homebrew.yml
-    - include: tasks/dotfiles.yml
-
-    # -----------------------------
-    # NPM MODULES
-    # -----------------------------
-    - include: tasks/npm.yml
-
-    # -----------------------------
-    # DATABASES
-    # -----------------------------
-    - include: tasks/mariadb.yml
-    - include: tasks/mongodb.yml
-    - include: tasks/postgres.yml
-
-    # -----------------------------
-    # GIT REPOS
-    # -----------------------------
-    - include: tasks/repos.yml
-
-    # -----------------------------
-    # SETUP
-    # -----------------------------
-    - name: Setup git
-      shell: config/git/config.sh
-
-    - name: Setup vscode
-      shell: config/vscode/config.sh
-
-    - name: Setup iterm
+    - name: Create ~/logs folder
       file:
-        src: config/iterm/com.google.iterm2.plist
-        dest: ~/Library/Preferences/com.google.iterm2.plist
-        state: link
-        force: yes
-
-    - name: Set zsh as default shell
-      user:
-        name: "{{ user }}"
-        shell: /bin/zsh
-      become: false`
-
-    - name: Remove last login from zsh
-      file:
-        path: ~/.hushlogin
-        state: touch
+        path: ~/logs
+        state: directory
+        owner: "{{ user }}"
         mode: 0755
-
-    # -----------------------------
-    # STARTUP SERVICES
-    # -----------------------------
+    - include: tasks/homebrew.yml
     - include: tasks/services.yml
+    # # -----------------------------
+    # # ESSENTIALS
+    # # -----------------------------
+    # - include: tasks/ssh.yml
+    # - include: tasks/packages.yml
+    # - include: tasks/homebrew.yml
+    # - include: tasks/dotfiles.yml
 
-    # -----------------------------
-    # SECURITY
-    # -----------------------------
-    - include: tasks/mariadb-secure.yml
+    # # -----------------------------
+    # # NPM MODULES
+    # # -----------------------------
+    # - include: tasks/npm.yml
 
-    # -----------------------------
-    # MACOSX
-    # -----------------------------
-    - include: tasks/dock.yml
+    # # -----------------------------
+    # # DATABASES
+    # # -----------------------------
+    # - include: tasks/mariadb.yml
+    # - include: tasks/mongodb.yml
+    # - include: tasks/postgres.yml
 
-    - name: Use macosx defaults
-      shell: config/macosx.sh
+    # # -----------------------------
+    # # GIT REPOS
+    # # -----------------------------
+    # - include: tasks/repos.yml
+
+    # # -----------------------------
+    # # SETUP
+    # # -----------------------------
+    # - name: Setup git
+    #   shell: config/git/config.sh
+
+    # - name: Setup vscode
+    #   shell: config/vscode/config.sh
+
+    # - name: Setup iterm
+    #   file:
+    #     src: config/iterm/com.google.iterm2.plist
+    #     dest: ~/Library/Preferences/com.google.iterm2.plist
+    #     state: link
+    #     force: yes
+
+    # - name: Set zsh as default shell
+    #   user:
+    #     name: "{{ user }}"
+    #     shell: /bin/zsh
+    #   become: false`
+
+    # - name: Remove last login from zsh
+    #   file:
+    #     path: ~/.hushlogin
+    #     state: touch
+    #     mode: 0755
+
+    # # -----------------------------
+    # # STARTUP SERVICES
+    # # -----------------------------
+    # - include: tasks/services.yml
+
+    # # -----------------------------
+    # # SECURITY
+    # # -----------------------------
+    # - include: tasks/mariadb-secure.yml
+
+    # # -----------------------------
+    # # MACOSX
+    # # -----------------------------
+    # - include: tasks/dock.yml
+
+    # - name: Use macosx defaults
+    #   shell: config/macosx.sh
