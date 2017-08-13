@@ -67,6 +67,7 @@ homebrew_packages:
   - lnav # log navigator
   - mitmproxy # man-in-the-middle proxy for HTTP & HTTPS
   - nginx
+  - packer
   - { name: php56, install_options: '--without-apache --with-fpm --with-mysql' }
   - php56-mcrypt
   - php56-xdebug
@@ -137,6 +138,7 @@ homebrew_cask_apps:
 
 npm_packages:
   - commitizen # standardize commit messages
+  - cypress-cli # test sites in a headless browser - https://www.cypress.io/
   - cz-conventional-changelog # commitizen adapter
   - plop # file generator based on templates
   - pm2 # process manager

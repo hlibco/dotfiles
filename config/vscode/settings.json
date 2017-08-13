@@ -36,7 +36,7 @@
     "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
     "tslint.nodePath": "/usr/local/lib/node_modules/tslint/lib",
     // "workbench.colorTheme": "One Dark",
-    "workbench.iconTheme": "vs-seti",
+    "workbench.iconTheme": "material-icon-theme",
     "editor.renderIndentGuides": false,
     "window.zoomLevel": 0,
     "workbench.startupEditor": "newUntitledFile"

@@ -34,7 +34,6 @@ asapp() { sudo su app -c "$*" }
 # Get docker container ip
 # Use: docker-ip [container_id]
 docker-ip() {
-  # docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
 	docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"
 }
 
