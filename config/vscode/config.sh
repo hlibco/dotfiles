@@ -57,6 +57,7 @@ if test "$(which code)"; then
     vector-of-bool.gitflow
     wmaurer.html2jade
     wmaurer.join-lines
+    wholroyd.jinja
   "
 
   for module in $modules; do
