@@ -2,6 +2,7 @@
 {
     "editor.fontFamily": "Menlo, monospace, Monaco, 'Courier New'",
     "editor.fontSize": 14,
+    "editor.hideCursorInOverviewRuler": true,
     "editor.lineHeight": 22,
     "editor.rulers": [
         80,
