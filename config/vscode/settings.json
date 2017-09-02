@@ -14,6 +14,7 @@
     "editor.fontLigatures": true,
     "editor.insertSpaces": true,
     "editor.minimap.enabled": false,
+    "editor.snippetSuggestions": "top",
     "explorer.openEditors.visible": 0,
     "files.insertFinalNewline": true,
     "files.exclude": {

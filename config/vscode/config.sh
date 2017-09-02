@@ -12,6 +12,7 @@ if test "$(which code)"; then
 	fi
 
 	ln -sf "$DOTFILES/config/vscode/settings.json" "$VSCODE_HOME/User/settings.json"
+  ln -sf "$DOTFILES/config/vscode/snippets/javascript.json" "$VSCODE_HOME/User/snippets/javascript.json"
 	# ln -sf "$DOTFILES/vscode/keybindings.json" "$VSCODE_HOME/User/keybindings.json"
 
 	# Get a list of extensions: `code --list-extensions`
@@ -61,6 +62,7 @@ if test "$(which code)"; then
   "
 
   for module in $modules; do
-  	code --install-extension "$module" || true
+    echo 1
+  	# code --install-extension "$module" || true
   done
 fi
