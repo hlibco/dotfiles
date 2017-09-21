@@ -23,7 +23,7 @@ export USE_EDITOR=$EDITOR
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 
-# All of our zsh files
+# Import all of our zsh files
 typeset -U config_files
 config_files=($DOTFILES/*/*/*.zsh)
 

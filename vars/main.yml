@@ -71,6 +71,7 @@ homebrew_packages:
   - { name: php56, install_options: '--without-apache --with-fpm --with-mysql' }
   - php56-mcrypt
   - php56-xdebug
+  - webp # convert images to webp format
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:

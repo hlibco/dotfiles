@@ -56,6 +56,7 @@ if test "$(which code)"; then
     stevencl.addDocComments
     sysoev.language-stylus
     vector-of-bool.gitflow
+    WallabyJs.wallaby-vscode
     wmaurer.html2jade
     wmaurer.join-lines
     wholroyd.jinja
