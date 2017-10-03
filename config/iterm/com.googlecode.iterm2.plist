@@ -303,12 +303,14 @@
 	<string>1246 1005 445 77 717 900 1920 1057 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>-489 1546 735 382 -1193 900 1920 1080 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>2850 380 620 392 1440 -388 3440 1417 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>986 1026 606 469 717 900 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>-635 1277 918 512 -1221 900 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 900 0 0 1440 877 </string>
+	<string>1440 -371 3431 1400 1440 -388 3440 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_1340436A-2B80-4D3C-858D-276BFCA13BA5</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_1340436A-2B80-4D3C-858D-276BFCA13BA5_selection</key>
@@ -996,6 +998,8 @@
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1042,7 +1046,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-09-04T06:34:59Z</date>
+	<date>2017-10-02T02:38:26Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

@@ -22,6 +22,7 @@ if test "$(which code)"; then
     EditorConfig.EditorConfig
     HookyQR.ExtensionUpdateCheck
     HookyQR.JSDocTagComplete
+    kumar-harsh.graphql
     LaurentTreguier.vscode-simple-icons
     MattiasPernhult.vscode-todo
     PKief.material-icon-theme

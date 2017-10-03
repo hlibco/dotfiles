@@ -11,6 +11,7 @@ alias myip='curl ipecho.net/plain ; echo'
 alias ping='ping -c 4'
 
 # NPM
+alias start="npm start"
 alias ns="npm start"
 alias nr="npm run-script"
 alias nt="npm test"
