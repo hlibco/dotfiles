@@ -5,5 +5,13 @@
         "import ${2:entities} from '${1:specifier}';$0"
     ],
     "description": "import statement"
+  },
+  "sdebug": {
+    "prefix": "component",
+    "body": [
+        "=============================== BOF",
+        "console.loga($1)",
+        "=============================== EOF"
+    ]
   }
 }

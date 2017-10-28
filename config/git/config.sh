@@ -17,3 +17,6 @@ if which code >/dev/null 2>&1; then
 	git config --global merge.tool vscode
 	git config --global mergetool.vscode.cmd "code --wait $MERGED"
 fi
+
+# Tell Git to be case-senstive
+git config core.ignorecase false

@@ -1,5 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
+    "bookmarks.saveBookmarksInProject": true,
     "editor.fontFamily": "Menlo, monospace, Monaco, 'Courier New'",
     "editor.fontSize": 14,
     "editor.hideCursorInOverviewRuler": true,
@@ -37,9 +38,10 @@
     },
     "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
     "tslint.nodePath": "/usr/local/lib/node_modules/tslint/lib",
-    // "workbench.colorTheme": "One Dark",
-    "workbench.iconTheme": "material-icon-theme",
     "editor.renderIndentGuides": false,
     "window.zoomLevel": 0,
+    // "workbench.colorTheme": "One Dark",
+    // "workbench.fontAliasing": "antialiased",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "newUntitledFile"
 }
