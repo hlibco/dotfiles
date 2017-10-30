@@ -7,7 +7,7 @@
     "description": "import statement"
   },
   "sdebug": {
-    "prefix": "component",
+    "prefix": "dbug",
     "body": [
         "=============================== BOF",
         "console.loga($1)",

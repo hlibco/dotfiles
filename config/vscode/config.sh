@@ -43,6 +43,7 @@ if test "$(which code)"; then
     file-icons.file-icons
     formulahendry.auto-rename-tag
     formulahendry.code-runner
+    joelday.docthis
     mattyjones.vscode-tickscript
     mauve.terraform
     mindginative.terraform-snippets
@@ -57,6 +58,7 @@ if test "$(which code)"; then
     stevencl.addDocComments
     sysoev.language-stylus
     vector-of-bool.gitflow
+    xabikos.JavaScriptSnippets
     WallabyJs.wallaby-vscode
     wmaurer.html2jade
     wmaurer.join-lines
