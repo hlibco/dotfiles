@@ -66,7 +66,6 @@ if test "$(which code)"; then
   "
 
   for module in $modules; do
-    echo 1
-  	# code --install-extension "$module" || true
+  	code --install-extension "$module" || true
   done
 fi
