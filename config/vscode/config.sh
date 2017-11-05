@@ -34,7 +34,6 @@ if test "$(which code)"; then
     chenxsan.vscode-standardjs
     christian-kohler.npm-intellisense
     christian-kohler.path-intellisense
-    dbaeumer.vscode-eslint
     deerawan.vscode-dash
     donjayamanne.githistory
     dzannotti.vscode-babel-coloring
