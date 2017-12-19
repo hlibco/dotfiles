@@ -22,12 +22,12 @@ if test "$(which code)"; then
     EditorConfig.EditorConfig
     HookyQR.ExtensionUpdateCheck
     HookyQR.JSDocTagComplete
-    kumar-harsh.graphql
     LaurentTreguier.vscode-simple-icons
     MattiasPernhult.vscode-todo
     PKief.material-icon-theme
     TwentyChung.jsx
     Tyriar.sort-lines
+    WallabyJs.wallaby-vscode
     akamud.vscode-theme-onedark
     alefragnani.Bookmarks
     bradgashler.htmltagwrap
@@ -43,6 +43,8 @@ if test "$(which code)"; then
     formulahendry.auto-rename-tag
     formulahendry.code-runner
     joelday.docthis
+    josa.markdown-table-formatter
+    kumar-harsh.graphql
     mattyjones.vscode-tickscript
     mauve.terraform
     mindginative.terraform-snippets
@@ -57,11 +59,10 @@ if test "$(which code)"; then
     stevencl.addDocComments
     sysoev.language-stylus
     vector-of-bool.gitflow
-    xabikos.JavaScriptSnippets
-    WallabyJs.wallaby-vscode
+    wholroyd.jinja
     wmaurer.html2jade
     wmaurer.join-lines
-    wholroyd.jinja
+    xabikos.JavaScriptSnippets
   "
 
   for module in $modules; do

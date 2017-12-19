@@ -39,9 +39,11 @@
     "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
     "tslint.nodePath": "/usr/local/lib/node_modules/tslint/lib",
     "editor.renderIndentGuides": false,
+    "markdownTableFormatter.enable": true,
     "window.zoomLevel": 0,
     // "workbench.colorTheme": "One Dark",
     // "workbench.fontAliasing": "antialiased",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.panel.location": "bottom"
 }

@@ -186,6 +186,11 @@ plugins=(git)
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
 # don't nice background tasks
 NO_BG_NICE="true"
 NO_HUP="true"

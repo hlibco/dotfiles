@@ -1,0 +1,22 @@
+# copy to ~/.ssh/config
+
+ControlPersist 4h
+StrictHostKeyChecking no
+
+# Host <alias, e.g. "linode">
+#     HostName <ip_address, e.g. "0.0.0.0">
+#     User <username>
+#     StrictHostKeyChecking no
+#     PasswordAuthentication no
+#     IdentityFile ~/.ssh/key.pem
+
+# Allows doing `ssh forwardkevin` instead of `ssh -L 3000:localhost:3000 iqnivek@kevin.local`
+# Host forwardkevin
+#     HostName kevin.local
+#     User iqnivek
+#     LocalForward 3000 localhost:3000
+
+# Keeps ssh connection alive by sending packet every 300 seconds
+# Prevents broken pipe errors
+Host *
+    ServerAliveInterval 300
