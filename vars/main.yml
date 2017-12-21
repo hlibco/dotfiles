@@ -61,6 +61,7 @@ homebrew_taps:
   - homebrew/php
 
 homebrew_packages:
+  - bash-completion
   - graphviz # graph visualization
   - hub # master github - https://hub.github.com/
   - hugo # static website generator

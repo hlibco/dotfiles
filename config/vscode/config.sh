@@ -25,6 +25,7 @@ if test "$(which code)"; then
     LaurentTreguier.vscode-simple-icons
     MattiasPernhult.vscode-todo
     PKief.material-icon-theme
+    PeterJausovec.vscode-docker
     TwentyChung.jsx
     Tyriar.sort-lines
     WallabyJs.wallaby-vscode
