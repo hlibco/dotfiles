@@ -12,6 +12,7 @@ alias ping='ping -c 4'
 
 # NPM
 alias start="npm start"
+alias test="npm test"
 alias ns="npm start"
 alias nr="npm run-script"
 alias nt="npm test"

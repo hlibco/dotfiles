@@ -53,6 +53,10 @@ Mongo DB:
 mongod --dbpath ~/data/db
 ```
 
+## Refresh aliases
+
+`source ~/.bash_profile` or `. ~/.bash_profile`
+
 ## TODO
 
 - Redis
