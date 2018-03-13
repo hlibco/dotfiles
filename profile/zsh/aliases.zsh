@@ -24,6 +24,7 @@ alias nit="npm install && npm test"
 
 # just reload the profile (mnemonic BashSource or BullS*)
 bs() { echo "Sourcing ~/.bash_profile" && . ~/.bash_profile; }
+reload() { echo "Sourcing ~/.zshrc" && . ~/.zshrc; }
 
 # turn xv on/off
 xv() { case $- in *[xv]*) set +xv;; *) set -xv ;; esac }

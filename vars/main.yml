@@ -63,6 +63,7 @@ homebrew_taps:
 homebrew_packages:
   - bash-completion
   - graphviz # graph visualization
+  - heroku/brew/heroku
   - hub # master github - https://hub.github.com/
   - hugo # static website generator
   - lnav # log navigator

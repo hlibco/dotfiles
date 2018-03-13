@@ -24,6 +24,7 @@ if test "$(which code)"; then
     HookyQR.JSDocTagComplete
     LaurentTreguier.vscode-simple-icons
     MattiasPernhult.vscode-todo
+    Orta.vscode-jest
     PKief.material-icon-theme
     PeterJausovec.vscode-docker
     TwentyChung.jsx
@@ -40,6 +41,7 @@ if test "$(which code)"; then
     dzannotti.vscode-babel-coloring
     eg2.tslint
     emmanuelbeziat.vscode-great-icons
+    esbenp.prettier-vscode
     file-icons.file-icons
     formulahendry.auto-rename-tag
     formulahendry.code-runner
