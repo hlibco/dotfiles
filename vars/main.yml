@@ -47,7 +47,6 @@ packages:
     - openssl
     - tree
     - wget
-    - yarn
 
 pip_packages:
   - awscli
@@ -74,6 +73,7 @@ homebrew_packages:
   - php56-mcrypt
   - php56-xdebug
   - webp # convert images to webp format
+  - yarn
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
