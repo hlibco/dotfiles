@@ -5,7 +5,7 @@ mysql=`brew list | grep mariadb`
 if [[ ! $mariadb ]]; then
     echo ''
 
-    # setup mysql
+    # setup mariadb
     ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist
 fi

@@ -40,10 +40,13 @@
     "tslint.nodePath": "/usr/local/lib/node_modules/tslint/lib",
     "editor.renderIndentGuides": false,
     "markdownTableFormatter.enable": true,
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     // "workbench.colorTheme": "One Dark",
     // "workbench.fontAliasing": "antialiased",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.panel.location": "bottom"
+    "workbench.panel.location": "bottom",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false
 }
