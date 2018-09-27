@@ -147,11 +147,9 @@ npm_packages:
   - pm2 # process manager
   - surge # cdn for developers
   - node-gyp # required by yarn
-  - nodemon
   - pure-prompt # zsh prompt - https://github.com/sindresorhus/pure
   - serverless # serverless framework
   - tsd # search and install TypeScript definition files from DefinitelyTyped
-  - typescript
   - typings
 
 dockitems_to_remove:

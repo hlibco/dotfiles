@@ -2,51 +2,45 @@
 {
     "bookmarks.saveBookmarksInProject": true,
     "editor.fontFamily": "Menlo, monospace, Monaco, 'Courier New'",
+    "editor.fontLigatures": true,
     "editor.fontSize": 14,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
     "editor.hideCursorInOverviewRuler": true,
+    "editor.insertSpaces": true,
     "editor.lineHeight": 22,
+    "editor.minimap.enabled": false,
+    "editor.renderIndentGuides": false,
     "editor.rulers": [
         80,
         120
     ],
+    "editor.snippetSuggestions": "top",
+    "editor.tabCompletion": true,
     "editor.tabSize": 2,
     "editor.trimAutoWhitespace": true,
-    "editor.tabCompletion": true,
-    "editor.fontLigatures": true,
-    "editor.insertSpaces": true,
-    "editor.minimap.enabled": false,
-    "editor.snippetSuggestions": "top",
     "explorer.openEditors.visible": 0,
-    "files.insertFinalNewline": true,
+    "eslint.enable": true,
     "files.exclude": {
         "**/.DS_Store": true,
         "**/.git": false
     },
-    "npm-intellisense.scanDevDependencies": true,
-    "standard.options": {
-        "enable": true,
-        "ignore": [
-            "node_modules/**"
-        ]
-    },
-    "eslint.enable": true,
-    "javascript.validate.enable": false,
-    // Defines space handling after a comma delimiter
+    "files.insertFinalNewline": true,
+    "genGetSet.spacedImportLine": true,
     "javascript.format.insertSpaceAfterCommaDelimiter": true,
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "javascript.validate.enable": false,
+    "markdownTableFormatter.enable": true,
+    "npm-intellisense.scanDevDependencies": true,
     "search.exclude": {
         "node_modules": true
     },
     "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
-    "tslint.nodePath": "/usr/local/lib/node_modules/tslint/lib",
-    "editor.renderIndentGuides": false,
-    "markdownTableFormatter.enable": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     // "workbench.colorTheme": "One Dark",
     // "workbench.fontAliasing": "antialiased",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.panel.location": "bottom",
-    "editor.formatOnPaste": false,
-    "editor.formatOnSave": false,
-    "editor.formatOnType": false
+    "files.autoSave": "off"
 }
