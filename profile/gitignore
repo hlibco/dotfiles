@@ -35,5 +35,4 @@ Thumbs.db
 .ds_store
 .env
 
-.vscode/
 dump.rdb

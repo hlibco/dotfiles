@@ -113,7 +113,7 @@
 	precomposeunicode = false
 
 	pager = diff-so-fancy | less --tabs=4 -RFX
-  autocrlf = input
+	autocrlf = input
 
 [color]
 

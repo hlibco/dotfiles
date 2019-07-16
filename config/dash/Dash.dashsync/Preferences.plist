@@ -121,16 +121,6 @@
 				<key>date</key>
 				<date>2017-07-24T18:44:44Z</date>
 			</dict>
-			<key>http://kapeli.com/feeds/C++.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2017-07-24T18:40:21Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/C.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2017-07-24T18:40:05Z</date>
-			</dict>
 			<key>http://kapeli.com/feeds/Docker.xml</key>
 			<dict>
 				<key>date</key>
@@ -196,6 +186,11 @@
 				<key>date</key>
 				<date>2017-07-24T18:42:38Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Pug.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2019-07-09T19:08:48Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Python_2.xml</key>
 			<dict>
 				<key>date</key>
@@ -216,6 +211,11 @@
 				<key>date</key>
 				<date>2017-07-24T18:42:52Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Sass.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2019-07-09T19:08:39Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Smarty.xml</key>
 			<dict>
 				<key>date</key>
@@ -233,7 +233,18 @@
 			</dict>
 		</dict>
 		<key>uninstalled</key>
-		<dict/>
+		<dict>
+			<key>http://kapeli.com/feeds/C++.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2019-07-09T19:09:24Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/C.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2019-07-09T19:09:25Z</date>
+			</dict>
+		</dict>
 	</dict>
 	<key>isPinned</key>
 	<true/>

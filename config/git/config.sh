@@ -20,3 +20,6 @@ fi
 
 # Tell Git to be case-senstive
 git config core.ignorecase false
+
+# Tell Git to convert CRLF to LF on commit but not the other way around
+git config --global core.autocrlf input
